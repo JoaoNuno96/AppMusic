@@ -6,6 +6,9 @@ using AppMusic.Entities;
 using AppMusic.Services;
 using AppMusic.Services.PaymentServices;
 using System.Globalization;
+using System.Reflection.Metadata.Ecma335;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using AppMusic.Services.Exceptions;
 
 
 namespace AppMusic.Services
@@ -17,6 +20,8 @@ namespace AppMusic.Services
         public Order Order;
 
         public string BaseDir = AppContext.BaseDirectory.Substring(0, 49);
+
+        public InvoiceService() { }
 
         public InvoiceService(IPayment pay, Order or)
         {
@@ -36,19 +41,15 @@ namespace AppMusic.Services
             Sb.AppendLine("||||||||||||");
             Sb.AppendLine("|||||||||||| Musics:");
 
-            foreach (Music M in Order.MusicService.ListOfMusics)
+            foreach (Music M in Order.OrderList)
             {
-                if(M.Available == false)
-                {
-                    Sb.AppendLine($"|||||||||||| {M.Id}, Name: {M.Band} - {M.Name}, Price: {M.Price}");
-                }
+                Sb.AppendLine($"|||||||||||| {M.Id}, Name: {M.Band} - {M.Name}, Price: {M.Price}");
             }
-            //return Sb.ToString();
 
-            var finalAmount = Order.MusicService.ListOfMusics.Where(x => x.Available == false).Select(x => x.Price).Sum();
+            var finalAmount = Order.OrderList.Where(x => x.Available == false).Select(x => x.Price).Sum();
             var first = _paymentService.Fee(finalAmount);
             var second = _paymentService.Tax(first);
-            Sb.AppendLine($"|||||||||||| Total Value: {second.ToString("F2",CultureInfo.InvariantCulture)}");
+            Sb.AppendLine($"|||||||||||| Total Value: {second.ToString("F2", CultureInfo.InvariantCulture)}");
             Sb.AppendLine("------------------------------------------------------------------------------");
             return Sb.ToString();
         }
@@ -56,38 +57,34 @@ namespace AppMusic.Services
 
         public void InvoiceDocument()
         {
-            int N = 1;
             string Dir = BaseDir + @"\Invoice\";
-            string Source = BaseDir + @"\Invoice\inovice" + N + ".txt";
+            string Source = BaseDir + @"\Invoice\Invoice" + Order.OrderId + ".txt";
 
             if (!Dir.Any())
             {
                 using (StreamWriter sw = File.CreateText(Source))
                 {
-                    sw.WriteLine(this.InvoiceProcess());
-                    /*sw.WriteLine("INVOICE DOCUMENT:");
-                    sw.WriteLine("Please do not share your data with anyone.");
-                    sw.WriteLine("Order:#" + Order.OrderId);*/
 
+                    sw.WriteLine(this.InvoiceProcess());
                 }
             }
             else
             {
-                N++;
+                Source = BaseDir + @"\Invoice\Invoice" + Order.OrderId + ".txt";
                 using (StreamWriter sw = File.CreateText(Source))
                 {
                     sw.WriteLine(this.InvoiceProcess());
                 }
-
             }
+
         }
 
         public void OpenInvoice(int Number)
         {
             List<string> List = new List<string>();
-            string Source = BaseDir + @"\Invoice\inovice" + Number + ".txt";
+            string Source = BaseDir + @"\Invoice\Invoice" + Number + ".txt";
 
-            if(Source.Any())
+            if (Source.Any())
             {
                 using (StreamReader sr = File.OpenText(Source))
                 {
@@ -98,11 +95,39 @@ namespace AppMusic.Services
                 }
             }
 
-            foreach(string Line in List)
+            foreach (string Line in List)
             {
                 Console.WriteLine(Line);
             }
         }
-   
+
+        public void InvoicesListShow()
+        {
+
+            List<string> List = new List<string>();
+
+            var BaseDir = AppContext.BaseDirectory.Substring(0, 49);
+            int index = Directory.GetFiles(BaseDir).Length;
+
+            for (int i = 1; i >= 1 && i <= index; i++)
+            {
+                string Source = BaseDir + @"\Invoice\Invoice" + i + ".txt";
+
+                string LineTwo = File.ReadLines(Source).Skip(1).Take(1).First().Substring(26,10);
+                string LineFour = File.ReadLines(Source).Skip(3).Take(1).First().Substring(13,11);
+
+                List.Add(LineTwo);
+                List.Add(LineFour);
+                List.Add("");
+
+            }
+
+            Console.WriteLine("------------------------------------------------------------------------------");
+            foreach (string l in List)
+            {
+                Console.WriteLine(l);
+            }
+        }
+
     }
 }

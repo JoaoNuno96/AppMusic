@@ -15,3 +15,4 @@ C:\Users\João Nuno\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\refint\AppMu
 C:\Users\João Nuno\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.pdb
 C:\Users\João Nuno\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.genruntimeconfig.cache
 C:\Users\João Nuno\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\ref\AppMusic.dll
+C:\Users\João Nuno\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.sourcelink.json

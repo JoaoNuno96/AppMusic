@@ -20,80 +20,124 @@ namespace AppMusic
             Console.WriteLine("This a application which lets you rent songs");
 
             bool execute = true;
+            List<Music> OrderItems = new List<Music>();
             var MS = new MusicService();
             MS.StoreRead();
             Order Ord;
             InvoiceService InvoiceS;
-            
-            
+
+
             while (execute)
             {
                 Console.WriteLine("What would you like to do?");
-                Console.Write("View Store:(S) ");
+                Console.WriteLine("View Store:(S) ");
+                Console.WriteLine("View InVoices: (I)");
+                Console.WriteLine("Shut Down: (E)");
 
                 char Char = char.Parse(Console.ReadLine());
+
+
                 if (Char == 'S' || Char == 's')
                 {
                     MS.StoreTableWrite();
-                }
 
-                Console.WriteLine();
-                Console.Write("Whould you like to make an order?(y/n) ");
-                char I = char.Parse(Console.ReadLine());
-
-                if(I == 'N' || I == 'n'){
-                    execute = false;
-                }
-                else
-                {
-                    Console.Write("How many songs would you like to rent? ");
-                    int NrSongs = int.Parse(Console.ReadLine());
-                    Console.WriteLine();
-                    Console.WriteLine("Which of the Songs Id would you like to rent: ");
-                   
-                    for (int i = 1; i>=1 && i<= NrSongs;i++)
+                    Console.Write("Would you like to make an Order? (Y/N)");
+                    char MaO = char.Parse(Console.ReadLine());
+                    if (MaO == 'N' || MaO == 'n')
                     {
-                        int id = int.Parse(Console.ReadLine());
+                        execute = false;
+                    }
+                    else
+                    {
+                        Console.Write("How many songs would you like to rent? ");
+                        int NrSongs = int.Parse(Console.ReadLine());
+                        Console.Write("Please select the music's id to rent: ");
 
-                        foreach (Music M in MS.ListOfMusics)
+                        for (int i = 1; i >= 1 && i <= NrSongs; i++)
                         {
-                            if(M.Id == id)
+                            int id = int.Parse(Console.ReadLine());
+
+                            foreach (Music M in MS.ListOfMusics)
                             {
-                                M.Available = false;
+                                if (M.Id == id)
+                                {
+                                    M.Available = false;
+                                    OrderItems.Add(M);
+                                }
                             }
                         }
+                        Console.WriteLine();
+
+                        Console.WriteLine("In order to make the Invoice, please give us some data: ");
+                        Console.Write("Name: ");
+                        string Name = Console.ReadLine();
+                        Console.Write("Email: ");
+                        string Email = Console.ReadLine();
+                        Console.Write("Phone Number: ");
+                        string PhoneNumber = Console.ReadLine();
+
+                        var Buyer = new Buyer(Name, Email, PhoneNumber);
+
+                        Console.Write("Which method of payment would you like to use? Mbway(M) or Paypal(P): ");
+                        char T = char.Parse(Console.ReadLine());
+
+                        string PaymentMethod = (T == 'M') ? "Mbway" : "Paypal";
+                        IPayment Pay = (T == 'M') ? new MbwayService() : new PaypalService();
+
+                        Ord = new Order(MS, Buyer, PaymentMethod);
+                        Ord.OrderIdIncrement();
+                        Ord.AddSongs(OrderItems);
+                        InvoiceS = new InvoiceService(Pay, Ord);
+
+                        Console.WriteLine();
+                        Console.WriteLine("We processed your invoice........ ");
+                        Console.WriteLine();
+                        Console.WriteLine(InvoiceS.InvoiceProcess());
+                        Console.WriteLine();
+                        InvoiceS.InvoiceDocument();
+                        OrderItems.Clear();
+
+                    }
+                }
+                if (Char == 'I' || Char == 'i')
+                {
+                    InvoiceS = new InvoiceService();
+                    try
+                    {
+                        InvoiceS.InvoicesListShow();
+                    }
+                    catch (FileNotFoundException e)
+                    {
+                        Console.WriteLine(e.Message);
                     }
                     Console.WriteLine();
 
-                    Console.WriteLine("In order to make the Invoice, please give us some data: ");
-                    Console.Write("Name: ");
-                    string Name = Console.ReadLine();
-                    Console.Write("Email: ");
-                    string Email = Console.ReadLine();
-                    Console.Write("Phone Number: ");
-                    string PhoneNumber = Console.ReadLine();
+                    Console.Write("Open Invoive? Y/N ");
+                    char OI = char.Parse(Console.ReadLine());
 
-                    var Buyer = new Buyer(Name,Email,PhoneNumber);
+                    if(OI == 'N' || OI == 'n')
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        Console.Write("Which one? (Invoice Nr) ");
+                        int IN = int.Parse(Console.ReadLine());
 
-                    Console.Write("Which method of payment would you like to use? Mbway(M) or Paypal(P): ");
-                    char T = char.Parse(Console.ReadLine());
+                        InvoiceS.OpenInvoice(IN);
 
-                    string PaymentMethod = (T == 'M') ? "Mbway" : "Paypal";
-                    IPayment Pay = (T == 'M') ? new MbwayService() : new PaypalService();
+                    }
 
-                    Ord = new Order(MS, Buyer, PaymentMethod);
-
-                    InvoiceS = new InvoiceService(Pay, Ord);
-                    Console.WriteLine();
-                    Console.WriteLine("We processed your invoice........ ");
-                    Console.WriteLine();
-                    Console.WriteLine(InvoiceS.InvoiceProcess());
-                    Console.WriteLine();
-                    InvoiceS.InvoiceDocument();
-
+                }
+                if(Char == 'E' || Char == 'e')
+                {
+                    execute = false;
                 }
 
             }
+
+            Console.WriteLine("Application Shutting Down...");
+
         }
     }
 }
