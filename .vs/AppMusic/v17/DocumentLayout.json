@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\jo\u00E3o nuno\\source\\repos\\appmusic\\appmusic\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\jo\u00E3o nuno\\source\\repos\\appmusic\\appmusic\\services\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\services\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\jo\u00E3o nuno\\source\\repos\\appmusic\\appmusic\\services\\exceptions\\invoicenotfountexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\services\\exceptions\\invoicenotfountexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\jo\u00E3o nuno\\source\\repos\\appmusic\\appmusic\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\jo\u00E3o nuno\\source\\repos\\appmusic\\appmusic\\services\\musicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,8 +19,12 @@
       "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\jo\u00E3o nuno\\source\\repos\\appmusic\\appmusic\\repository\\store.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\repository\\store.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\jo\u00E3o nuno\\source\\repos\\appmusic\\appmusic\\services\\repositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\services\\repositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\jo\u00E3o nuno\\source\\repos\\appmusic\\appmusic\\entities\\music.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\entities\\music.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,56 +34,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InvoiceNotFountException.cs",
-              "DocumentMoniker": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Services\\Exceptions\\InvoiceNotFountException.cs",
-              "RelativeDocumentMoniker": "AppMusic\\Services\\Exceptions\\InvoiceNotFountException.cs",
-              "ToolTip": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Services\\Exceptions\\InvoiceNotFountException.cs",
-              "RelativeToolTip": "AppMusic\\Services\\Exceptions\\InvoiceNotFountException.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABIAAAA",
+              "DocumentIndex": 0,
+              "Title": "InvoiceService.cs",
+              "DocumentMoniker": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Services\\InvoiceService.cs",
+              "RelativeDocumentMoniker": "AppMusic\\Services\\InvoiceService.cs",
+              "ToolTip": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Services\\InvoiceService.cs",
+              "RelativeToolTip": "AppMusic\\Services\\InvoiceService.cs",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAuwG4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T14:27:39.863Z",
+              "WhenOpened": "2024-04-10T09:59:38.717Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Store.txt",
-              "DocumentMoniker": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Repository\\Store.txt",
-              "RelativeDocumentMoniker": "AppMusic\\Repository\\Store.txt",
-              "ToolTip": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Repository\\Store.txt",
-              "RelativeToolTip": "AppMusic\\Repository\\Store.txt",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-04-12T12:40:06.602Z",
+              "Title": "Music.cs",
+              "DocumentMoniker": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Entities\\Music.cs",
+              "RelativeDocumentMoniker": "AppMusic\\Entities\\Music.cs",
+              "ToolTip": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Entities\\Music.cs",
+              "RelativeToolTip": "AppMusic\\Entities\\Music.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T13:43:36.833Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "RepositoryService.cs",
+              "DocumentMoniker": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Services\\RepositoryService.cs",
+              "RelativeDocumentMoniker": "AppMusic\\Services\\RepositoryService.cs",
+              "ToolTip": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Services\\RepositoryService.cs",
+              "RelativeToolTip": "AppMusic\\Services\\RepositoryService.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAA6wBwAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T12:12:08.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Order.cs",
               "DocumentMoniker": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Entities\\Order.cs",
               "RelativeDocumentMoniker": "AppMusic\\Entities\\Order.cs",
               "ToolTip": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Entities\\Order.cs",
               "RelativeToolTip": "AppMusic\\Entities\\Order.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAIwC8AAAAMAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAA5wB4AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-10T09:11:05.851Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "MusicService.cs",
               "DocumentMoniker": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Services\\MusicService.cs",
               "RelativeDocumentMoniker": "AppMusic\\Services\\MusicService.cs",
               "ToolTip": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Services\\MusicService.cs",
               "RelativeToolTip": "AppMusic\\Services\\MusicService.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAAwBUAAAAyAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB4AAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-11T09:25:27.73Z",
               "EditorCaption": ""
@@ -91,25 +104,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "InvoiceService.cs",
-              "DocumentMoniker": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Services\\InvoiceService.cs",
-              "RelativeDocumentMoniker": "AppMusic\\Services\\InvoiceService.cs",
-              "ToolTip": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Services\\InvoiceService.cs",
-              "RelativeToolTip": "AppMusic\\Services\\InvoiceService.cs",
-              "ViewState": "AQIAAHMAAAAAAAAAAAAcwH4AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T09:59:38.717Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Program.cs",
               "RelativeDocumentMoniker": "AppMusic\\Program.cs",
               "ToolTip": "C:\\Users\\Jo\u00E3o Nuno\\source\\repos\\AppMusic\\AppMusic\\Program.cs",
               "RelativeToolTip": "AppMusic\\Program.cs",
-              "ViewState": "AQIAAHMAAAAAAAAAAAAcwHoAAAAVAAAA",
+              "ViewState": "AQIAAF4AAAAAAAAAAAAQwGgAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-10T08:54:06.861Z",
               "EditorCaption": ""

@@ -14,6 +14,7 @@ namespace AppMusic.Entities
         public int OrderId { get; set; } = 1;
         public MusicService MusicService { get; set; } = new MusicService();
         public List<Music> OrderList { get; set; } = new List<Music>();
+        public RepositoryService RepositoryService { get; set; } = new RepositoryService();
         public Buyer BuyerDetails { get; set; }
         public OrderStatus Status { get; set; }
         public string PaymentMethod { get; set; }

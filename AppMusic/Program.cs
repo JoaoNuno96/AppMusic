@@ -25,6 +25,7 @@ namespace AppMusic
             MS.StoreRead();
             Order Ord;
             InvoiceService InvoiceS;
+            RepositoryService RepositoryService = new RepositoryService();
 
 
             while (execute)
@@ -63,6 +64,7 @@ namespace AppMusic
                                 {
                                     M.Available = false;
                                     OrderItems.Add(M);
+                                    RepositoryService.RentItemDatabase(2);
                                 }
                             }
                         }
@@ -110,6 +112,7 @@ namespace AppMusic
                     {
                         Console.WriteLine(e.Message);
                     }
+                 
                     Console.WriteLine();
 
                     Console.Write("Open Invoive? Y/N ");

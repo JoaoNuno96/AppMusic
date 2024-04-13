@@ -28,7 +28,7 @@ namespace AppMusic.Services
                     string M_Name = Vect[1];
                     string M_Band = Vect[2];
                     double M_Price = double.Parse(Vect[3], CultureInfo.InvariantCulture);
-                    DateTime M_Upload = DateTime.ParseExact(Vect[4], "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    DateTime M_Upload = DateTime.Parse(Vect[4]);
                     bool M_Avail = bool.Parse(Vect[5]);
                     ListOfMusics.Add(new Music(M_Id, M_Name, M_Band, M_Price, M_Upload, M_Avail));
                 }

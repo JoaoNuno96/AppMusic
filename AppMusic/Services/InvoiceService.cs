@@ -106,27 +106,25 @@ namespace AppMusic.Services
 
             List<string> List = new List<string>();
 
-            var BaseDir = AppContext.BaseDirectory.Substring(0, 49);
+            var BaseDir = AppContext.BaseDirectory.Substring(0, 49) + @"\Invoice\";
             int index = Directory.GetFiles(BaseDir).Length;
 
             for (int i = 1; i >= 1 && i <= index; i++)
             {
-                string Source = BaseDir + @"\Invoice\Invoice" + i + ".txt";
+                string Source = BaseDir + @"\Invoice" + i + ".txt";
 
-                string LineTwo = File.ReadLines(Source).Skip(1).Take(1).First().Substring(26,10);
-                string LineFour = File.ReadLines(Source).Skip(3).Take(1).First().Substring(13,11);
-
-                List.Add(LineTwo);
-                List.Add(LineFour);
-                List.Add("");
+                var lOne = File.ReadAllLines(Source).Skip(1).Take(1).First().ToString().Substring(26);
+                var lTwo = File.ReadAllLines(Source).Skip(3).Take(1).First().ToString().Substring(13);
+                List.Add(lOne);
+                List.Add(lTwo);
 
             }
 
-            Console.WriteLine("------------------------------------------------------------------------------");
-            foreach (string l in List)
+            foreach (string Line in List)
             {
-                Console.WriteLine(l);
+                Console.WriteLine(Line);
             }
+            
         }
 
     }
