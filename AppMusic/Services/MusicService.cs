@@ -8,6 +8,7 @@ using AppMusic.Entities;
 using System.Globalization;
 using ConsoleTables;
 using System.Data;
+using AppMusic.Services.Exceptions;
 
 
 namespace AppMusic.Services
@@ -16,6 +17,27 @@ namespace AppMusic.Services
     {
         public string BaseDir = (AppContext.BaseDirectory.Substring(0, 49) + @"\Repository\Store.txt").ToString();
         public List<Music> ListOfMusics { get; set; } = new List<Music>();
+
+        public bool VerifyMusic(Music M)
+        {
+            if (M.Available == false)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public void VerifyMusicProcess(bool status)
+        {
+            if (status)
+            {
+                Console.WriteLine("Music available");
+            }
+            else
+            {
+                throw new MusicNotAvailableException("Music is not available");
+            }
+        }
 
         public void StoreRead()
         {

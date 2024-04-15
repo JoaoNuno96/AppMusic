@@ -5,6 +5,7 @@ using AppMusic.Entities;
 using AppMusic.Services;
 using AppMusic.Services.PaymentServices;
 using AppMusic.Services.Exceptions;
+using System.Runtime.CompilerServices;
 
 namespace AppMusic
 {
@@ -35,10 +36,10 @@ namespace AppMusic
                 Console.WriteLine("View InVoices: (I)");
                 Console.WriteLine("Shut Down: (E)");
 
-                char Char = char.Parse(Console.ReadLine());
+                char Character = char.Parse(Console.ReadLine());
 
 
-                if (Char == 'S' || Char == 's')
+                if (Character == 'S' || Character == 's')
                 {
                     MS.StoreTableWrite();
 
@@ -62,46 +63,56 @@ namespace AppMusic
                             {
                                 if (M.Id == id)
                                 {
-                                    M.Available = false;
-                                    OrderItems.Add(M);
-                                    RepositoryService.RentItemDatabase(2);
+                                    try
+                                    {
+                                        MS.VerifyMusicProcess(MS.VerifyMusic(M));
+                                        M.Available = false;
+                                        OrderItems.Add(M);
+                                        RepositoryService.RentItemDatabase(2);
+
+                                        Console.WriteLine("In order to make the Invoice, please give us some data: ");
+                                        Console.Write("Name: ");
+                                        string Name = Console.ReadLine();
+                                        Console.Write("Email: ");
+                                        string Email = Console.ReadLine();
+                                        Console.Write("Phone Number: ");
+                                        string PhoneNumber = Console.ReadLine();
+
+                                        var Buyer = new Buyer(Name, Email, PhoneNumber);
+
+                                        Console.Write("Which method of payment would you like to use? Mbway(M) or Paypal(P): ");
+                                        char T = char.Parse(Console.ReadLine());
+
+                                        string PaymentMethod = (T == 'M') ? "Mbway" : "Paypal";
+                                        IPayment Pay = (T == 'M') ? new MbwayService() : new PaypalService();
+
+                                        Ord = new Order(MS, Buyer, PaymentMethod);
+                                        Ord.OrderIdIncrement();
+                                        Ord.AddSongs(OrderItems);
+                                        InvoiceS = new InvoiceService(Pay, Ord);
+
+                                        Console.WriteLine();
+                                        Console.WriteLine("We processed your invoice........ ");
+                                        Console.WriteLine();
+                                        Console.WriteLine(InvoiceS.InvoiceProcess());
+                                        Console.WriteLine();
+                                        InvoiceS.InvoiceDocument();
+                                        OrderItems.Clear();
+
+                                    }
+                                    catch (MusicNotAvailableException e)
+                                    {
+                                        Console.WriteLine("Error: " + e.Message);
+                                    }
                                 }
                             }
+
                         }
-                        Console.WriteLine();
-
-                        Console.WriteLine("In order to make the Invoice, please give us some data: ");
-                        Console.Write("Name: ");
-                        string Name = Console.ReadLine();
-                        Console.Write("Email: ");
-                        string Email = Console.ReadLine();
-                        Console.Write("Phone Number: ");
-                        string PhoneNumber = Console.ReadLine();
-
-                        var Buyer = new Buyer(Name, Email, PhoneNumber);
-
-                        Console.Write("Which method of payment would you like to use? Mbway(M) or Paypal(P): ");
-                        char T = char.Parse(Console.ReadLine());
-
-                        string PaymentMethod = (T == 'M') ? "Mbway" : "Paypal";
-                        IPayment Pay = (T == 'M') ? new MbwayService() : new PaypalService();
-
-                        Ord = new Order(MS, Buyer, PaymentMethod);
-                        Ord.OrderIdIncrement();
-                        Ord.AddSongs(OrderItems);
-                        InvoiceS = new InvoiceService(Pay, Ord);
-
-                        Console.WriteLine();
-                        Console.WriteLine("We processed your invoice........ ");
-                        Console.WriteLine();
-                        Console.WriteLine(InvoiceS.InvoiceProcess());
-                        Console.WriteLine();
-                        InvoiceS.InvoiceDocument();
-                        OrderItems.Clear();
-
                     }
+                    Console.WriteLine();
                 }
-                if (Char == 'I' || Char == 'i')
+
+                if (Character == 'I' || Character == 'i')
                 {
                     InvoiceS = new InvoiceService();
                     try
@@ -112,13 +123,13 @@ namespace AppMusic
                     {
                         Console.WriteLine(e.Message);
                     }
-                 
+
                     Console.WriteLine();
 
                     Console.Write("Open Invoive? Y/N ");
                     char OI = char.Parse(Console.ReadLine());
 
-                    if(OI == 'N' || OI == 'n')
+                    if (OI == 'N' || OI == 'n')
                     {
                         continue;
                     }
@@ -131,16 +142,18 @@ namespace AppMusic
 
                     }
 
+
+                    if (Character == 'E' || Character == 'e')
+                    {
+                        execute = false;
+                    }
+
                 }
-                if(Char == 'E' || Char == 'e')
-                {
-                    execute = false;
-                }
+
+                Console.WriteLine("Application Shutting Down...");
 
             }
-
-            Console.WriteLine("Application Shutting Down...");
-
         }
     }
+
 }

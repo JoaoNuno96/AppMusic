@@ -33,7 +33,7 @@ namespace AppMusic.Entities
 
         public void AddSongs(List<Music> L)
         {
-            foreach(Music M in L)
+            foreach (Music M in L)
             {
                 AddSong(M);
             }
@@ -52,4 +52,5 @@ namespace AppMusic.Entities
         }
 
     }
+
 }
