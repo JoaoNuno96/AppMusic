@@ -2,7 +2,7 @@
 {
     interface IPayment
     {
-        public double Tax(double amount);
-        public double Fee(double amount);
+        public double tax(double amount);
+        public double fee(double amount);
     }
 }

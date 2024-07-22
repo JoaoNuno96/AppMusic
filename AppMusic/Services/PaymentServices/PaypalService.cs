@@ -2,12 +2,12 @@
 {
     class PaypalService : IPayment
     {
-        public double Tax(double amount)
+        public double tax(double amount)
         {
             return amount * 1.2;
         }
 
-        public double Fee(double amount)
+        public double fee(double amount)
         {
             return amount * 1.2;
         }

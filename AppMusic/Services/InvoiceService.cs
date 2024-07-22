@@ -17,110 +17,114 @@ namespace AppMusic.Services
     {
         private readonly IPayment _paymentService;
 
-        public Order Order;
+        public Order order;
 
-        public string BaseDir = AppContext.BaseDirectory.Substring(0, 49);
+        public string baseDir = AppContext.BaseDirectory.Substring(0, 49);
 
         public InvoiceService() { }
 
         public InvoiceService(IPayment pay, Order or)
         {
             _paymentService = pay;
-            Order = or;
+            order = or;
         }
 
-        public string InvoiceProcess()
+        //Metodo que retorna o layout de invoice.
+        public string invoiceProcess()
         {
-            StringBuilder Sb = new StringBuilder();
-            Sb.AppendLine("------------------------------------------------------------------------------");
-            Sb.AppendLine("                          INVOICE #" + Order.OrderId);
-            Sb.AppendLine("|||||||||||| Buyer:");
-            Sb.AppendLine("|||||||||||| Name: " + Order.BuyerDetails.Name);
-            Sb.AppendLine("|||||||||||| Email: " + Order.BuyerDetails.Email);
-            Sb.AppendLine("|||||||||||| Phone Number: " + Order.BuyerDetails.PhoneNumber);
-            Sb.AppendLine("||||||||||||");
-            Sb.AppendLine("|||||||||||| Musics:");
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("------------------------------------------------------------------------------");
+            sb.AppendLine("                          INVOICE #" + order.orderId);
+            sb.AppendLine("|||||||||||| Buyer:");
+            sb.AppendLine("|||||||||||| Name: " + order.buyerDetails.name);
+            sb.AppendLine("|||||||||||| Email: " + order.buyerDetails.email);
+            sb.AppendLine("|||||||||||| Phone Number: " + order.buyerDetails.phoneNumber);
+            sb.AppendLine("||||||||||||");
+            sb.AppendLine("|||||||||||| Musics:");
 
-            foreach (Music M in Order.OrderList)
+            foreach (Music m in order.orderList)
             {
-                Sb.AppendLine($"|||||||||||| {M.Id}, Name: {M.Band} - {M.Name}, Price: {M.Price}");
+                sb.AppendLine($"|||||||||||| {m.id}, Name: {m.band} - {m.name}, Price: {m.price}");
             }
 
-            var finalAmount = Order.OrderList.Where(x => x.Available == false).Select(x => x.Price).Sum();
-            var first = _paymentService.Fee(finalAmount);
-            var second = _paymentService.Tax(first);
-            Sb.AppendLine($"|||||||||||| Total Value: {second.ToString("F2", CultureInfo.InvariantCulture)}");
-            Sb.AppendLine("------------------------------------------------------------------------------");
-            return Sb.ToString();
+            var finalAmount = order.orderList.Where(x => x.available == false).Select(x => x.price).Sum();
+            var first = _paymentService.fee(finalAmount);
+            var second = _paymentService.tax(first);
+            sb.AppendLine($"|||||||||||| Total Value: {second.ToString("F2", CultureInfo.InvariantCulture)}");
+            sb.AppendLine("------------------------------------------------------------------------------");
+            return sb.ToString();
         }
 
-
-        public void InvoiceDocument()
+        //Metodo que faz o processamento do documento da invoice, de acordo com o InvoiceProcess() => o layout;
+        //Faz o processamento do numero de documento de acordo com o numero de arquivos no diretório com + 1;
+        public void invoiceDocument()
         {
-            string Dir = BaseDir + @"\Invoice\";
-            string Source = BaseDir + @"\Invoice\Invoice" + Order.OrderId + ".txt";
+            string dir = baseDir + @"\Invoice\";
+            string source = baseDir + @"\Invoice\Invoice" + order.orderId + ".txt";
 
-            if (!Dir.Any())
+            if (!dir.Any())
             {
-                using (StreamWriter sw = File.CreateText(Source))
+                using (StreamWriter sw = File.CreateText(source))
                 {
 
-                    sw.WriteLine(this.InvoiceProcess());
+                    sw.WriteLine(this.invoiceProcess());
                 }
             }
             else
             {
-                Source = BaseDir + @"\Invoice\Invoice" + Order.OrderId + ".txt";
-                using (StreamWriter sw = File.CreateText(Source))
+                source = baseDir + @"\Invoice\Invoice" + order.orderId + ".txt";
+                using (StreamWriter sw = File.CreateText(source))
                 {
-                    sw.WriteLine(this.InvoiceProcess());
+                    sw.WriteLine(this.invoiceProcess());
                 }
             }
 
         }
 
-        public void OpenInvoice(int Number)
+        //Metodo para abrir Invoice de acordo com um numero especifico 
+        public void openInvoice(int Number)
         {
-            List<string> List = new List<string>();
-            string Source = BaseDir + @"\Invoice\Invoice" + Number + ".txt";
+            List<string> list = new List<string>();
+            string source = baseDir + @"\Invoice\Invoice" + Number + ".txt";
 
-            if (Source.Any())
+            if (source.Any())
             {
-                using (StreamReader sr = File.OpenText(Source))
+                using (StreamReader sr = File.OpenText(source))
                 {
                     while (!sr.EndOfStream)
                     {
-                        List.Add(sr.ReadLine());
+                        list.Add(sr.ReadLine());
                     }
                 }
             }
 
-            foreach (string Line in List)
+            foreach (string Line in list)
             {
                 Console.WriteLine(Line);
             }
         }
 
-        public void InvoicesListShow()
+        //Metodo para listar o numero de invoices
+        public void invoicesListShow()
         {
 
-            List<string> List = new List<string>();
+            List<string> list = new List<string>();
 
-            var BaseDir = AppContext.BaseDirectory.Substring(0, 49) + @"\Invoice\";
-            int index = Directory.GetFiles(BaseDir).Length;
+            var baseDir = AppContext.BaseDirectory.Substring(0, 49) + @"\Invoice\";
+            int index = Directory.GetFiles(baseDir).Length;
 
             for (int i = 1; i >= 1 && i <= index; i++)
             {
-                string Source = BaseDir + @"\Invoice" + i + ".txt";
+                string source = baseDir + @"\Invoice" + i + ".txt";
 
-                var lOne = File.ReadAllLines(Source).Skip(1).Take(1).First().ToString().Substring(26);
-                var lTwo = File.ReadAllLines(Source).Skip(3).Take(1).First().ToString().Substring(13);
-                List.Add(lOne);
-                List.Add(lTwo);
+                var lOne = File.ReadAllLines(source).Skip(1).Take(1).First().ToString().Substring(26);
+                var lTwo = File.ReadAllLines(source).Skip(3).Take(1).First().ToString().Substring(13);
+                list.Add(lOne);
+                list.Add(lTwo);
 
             }
 
-            foreach (string Line in List)
+            foreach (string Line in list)
             {
                 Console.WriteLine(Line);
             }

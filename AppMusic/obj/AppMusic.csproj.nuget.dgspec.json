@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\João Nuno\\source\\repos\\AppMusic\\AppMusic\\AppMusic.csproj": {}
+    "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\AppMusic.csproj": {}
   },
   "projects": {
-    "C:\\Users\\João Nuno\\source\\repos\\AppMusic\\AppMusic\\AppMusic.csproj": {
+    "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\AppMusic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\João Nuno\\source\\repos\\AppMusic\\AppMusic\\AppMusic.csproj",
+        "projectUniqueName": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\AppMusic.csproj",
         "projectName": "AppMusic",
-        "projectPath": "C:\\Users\\João Nuno\\source\\repos\\AppMusic\\AppMusic\\AppMusic.csproj",
-        "packagesPath": "C:\\Users\\João Nuno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\João Nuno\\source\\repos\\AppMusic\\AppMusic\\obj\\",
+        "projectPath": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\AppMusic.csproj",
+        "packagesPath": "C:\\Users\\joaon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\João Nuno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\joaon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -72,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

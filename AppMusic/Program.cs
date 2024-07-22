@@ -21,12 +21,12 @@ namespace AppMusic
             Console.WriteLine("This a application which lets you rent songs");
 
             bool execute = true;
-            List<Music> OrderItems = new List<Music>();
-            var MS = new MusicService();
-            MS.StoreRead();
-            Order Ord;
-            InvoiceService InvoiceS;
-            RepositoryService RepositoryService = new RepositoryService();
+            List<Music> orderItems = new List<Music>();
+            var musicService = new MusicService();
+            musicService.storeRead();
+            Order order;
+            InvoiceService invoiceService;
+            RepositoryService repositoryService = new RepositoryService();
 
 
             while (execute)
@@ -41,7 +41,7 @@ namespace AppMusic
 
                 if (Character == 'S' || Character == 's')
                 {
-                    MS.StoreTableWrite();
+                    musicService.storeTableWrite();
 
                     Console.Write("Would you like to make an Order? (Y/N)");
                     char MaO = char.Parse(Console.ReadLine());
@@ -59,16 +59,16 @@ namespace AppMusic
                         {
                             int id = int.Parse(Console.ReadLine());
 
-                            foreach (Music M in MS.ListOfMusics)
+                            foreach (Music M in musicService.listOfMusics)
                             {
-                                if (M.Id == id)
+                                if (M.id == id)
                                 {
                                     try
                                     {
-                                        MS.VerifyMusicProcess(MS.VerifyMusic(M));
-                                        M.Available = false;
-                                        OrderItems.Add(M);
-                                        RepositoryService.RentItemDatabase(2);
+                                        musicService.verifyMusicProcess(musicService.verifyMusic(M));
+                                        M.available = false;
+                                        orderItems.Add(M);
+                                        repositoryService.rentItemDatabase(2);
 
                                         Console.WriteLine("In order to make the Invoice, please give us some data: ");
                                         Console.Write("Name: ");
@@ -86,18 +86,18 @@ namespace AppMusic
                                         string PaymentMethod = (T == 'M') ? "Mbway" : "Paypal";
                                         IPayment Pay = (T == 'M') ? new MbwayService() : new PaypalService();
 
-                                        Ord = new Order(MS, Buyer, PaymentMethod);
-                                        Ord.OrderIdIncrement();
-                                        Ord.AddSongs(OrderItems);
-                                        InvoiceS = new InvoiceService(Pay, Ord);
+                                        order = new Order(musicService, Buyer, PaymentMethod);
+                                        order.orderIdIncrement();
+                                        order.addSongs(orderItems);
+                                        invoiceService = new InvoiceService(Pay, order);
 
                                         Console.WriteLine();
                                         Console.WriteLine("We processed your invoice........ ");
                                         Console.WriteLine();
-                                        Console.WriteLine(InvoiceS.InvoiceProcess());
+                                        Console.WriteLine(invoiceService.invoiceProcess());
                                         Console.WriteLine();
-                                        InvoiceS.InvoiceDocument();
-                                        OrderItems.Clear();
+                                        invoiceService.invoiceDocument();
+                                        orderItems.Clear();
 
                                     }
                                     catch (MusicNotAvailableException e)
@@ -114,10 +114,10 @@ namespace AppMusic
 
                 if (Character == 'I' || Character == 'i')
                 {
-                    InvoiceS = new InvoiceService();
+                    invoiceService = new InvoiceService();
                     try
                     {
-                        InvoiceS.InvoicesListShow();
+                        invoiceService.invoicesListShow();
                     }
                     catch (FileNotFoundException e)
                     {
@@ -138,7 +138,7 @@ namespace AppMusic
                         Console.Write("Which one? (Invoice Nr) ");
                         int IN = int.Parse(Console.ReadLine());
 
-                        InvoiceS.OpenInvoice(IN);
+                        invoiceService.openInvoice(IN);
 
                     }
 

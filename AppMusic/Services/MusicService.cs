@@ -15,19 +15,19 @@ namespace AppMusic.Services
 {
     class MusicService
     {
-        public string BaseDir = (AppContext.BaseDirectory.Substring(0, 49) + @"\Repository\Store.txt").ToString();
-        public List<Music> ListOfMusics { get; set; } = new List<Music>();
+        public string baseDir = (AppContext.BaseDirectory.Substring(0, 49) + @"\Repository\Store.txt").ToString();
+        public List<Music> listOfMusics { get; set; } = new List<Music>();
 
-        public bool VerifyMusic(Music M)
+        public bool verifyMusic(Music music)
         {
-            if (M.Available == false)
+            if (music.available == false)
             {
                 return false;
             }
             return true;
         }
 
-        public void VerifyMusicProcess(bool status)
+        public void verifyMusicProcess(bool status)
         {
             if (status)
             {
@@ -39,29 +39,29 @@ namespace AppMusic.Services
             }
         }
 
-        public void StoreRead()
+        public void storeRead()
         {
-            using (StreamReader sr = File.OpenText(BaseDir))
+            using (StreamReader sr = File.OpenText(baseDir))
             {
                 while (!sr.EndOfStream)
                 {
-                    string[] Vect = sr.ReadLine().Split(',');
-                    int M_Id = int.Parse(Vect[0]);
-                    string M_Name = Vect[1];
-                    string M_Band = Vect[2];
-                    double M_Price = double.Parse(Vect[3], CultureInfo.InvariantCulture);
-                    DateTime M_Upload = DateTime.Parse(Vect[4]);
-                    bool M_Avail = bool.Parse(Vect[5]);
-                    ListOfMusics.Add(new Music(M_Id, M_Name, M_Band, M_Price, M_Upload, M_Avail));
+                    string[] vect = sr.ReadLine().Split(',');
+                    int musicId = int.Parse(vect[0]);
+                    string musicName = vect[1];
+                    string musicBand = vect[2];
+                    double musicPrice = double.Parse(vect[3], CultureInfo.InvariantCulture);
+                    DateTime musicUpload = DateTime.Parse(vect[4]);
+                    bool musicAvail = bool.Parse(vect[5]);
+                    listOfMusics.Add(new Music(musicId, musicName, musicBand, musicPrice, musicUpload, musicAvail));
                 }
             }
 
         }
 
-        public void StoreTableWrite()
+        public void storeTableWrite()
         {
             Console.OutputEncoding = Encoding.UTF8;
-            var data = InitEmployee();
+            var data = initEmployee();
             string[] columnNames = data.Columns.Cast<DataColumn>()
                                  .Select(x => x.ColumnName)
                                  .ToArray();
@@ -77,7 +77,7 @@ namespace AppMusic.Services
 
         }
 
-        public DataTable InitEmployee()
+        public DataTable initEmployee()
         {
 
             var table = new DataTable();
@@ -88,9 +88,9 @@ namespace AppMusic.Services
             table.Columns.Add("Upload Date");
             table.Columns.Add("Available");
 
-            foreach (Music M in ListOfMusics)
+            foreach (Music music in listOfMusics)
             {
-                table.Rows.Add(M.Id, M.Name, M.Band, M.Price, M.UploadTime, M.Available);
+                table.Rows.Add(music.id, music.name, music.band, music.price, music.uploadTime, music.available);
             }
             return table;
         }

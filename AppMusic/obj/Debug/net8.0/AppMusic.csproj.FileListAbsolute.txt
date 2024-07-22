@@ -16,3 +16,21 @@ C:\Users\João Nuno\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.pdb
 C:\Users\João Nuno\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.genruntimeconfig.cache
 C:\Users\João Nuno\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\ref\AppMusic.dll
 C:\Users\João Nuno\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.sourcelink.json
+C:\Users\joaon\source\repos\AppMusic\AppMusic\bin\Debug\net8.0\AppMusic.exe
+C:\Users\joaon\source\repos\AppMusic\AppMusic\bin\Debug\net8.0\AppMusic.deps.json
+C:\Users\joaon\source\repos\AppMusic\AppMusic\bin\Debug\net8.0\AppMusic.runtimeconfig.json
+C:\Users\joaon\source\repos\AppMusic\AppMusic\bin\Debug\net8.0\AppMusic.dll
+C:\Users\joaon\source\repos\AppMusic\AppMusic\bin\Debug\net8.0\AppMusic.pdb
+C:\Users\joaon\source\repos\AppMusic\AppMusic\bin\Debug\net8.0\ConsoleTables.dll
+C:\Users\joaon\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.csproj.AssemblyReference.cache
+C:\Users\joaon\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joaon\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.AssemblyInfoInputs.cache
+C:\Users\joaon\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.AssemblyInfo.cs
+C:\Users\joaon\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.csproj.CoreCompileInputs.cache
+C:\Users\joaon\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.sourcelink.json
+C:\Users\joaon\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.csproj.Up2Date
+C:\Users\joaon\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.dll
+C:\Users\joaon\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\refint\AppMusic.dll
+C:\Users\joaon\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.pdb
+C:\Users\joaon\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.genruntimeconfig.cache
+C:\Users\joaon\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\ref\AppMusic.dll

@@ -12,54 +12,50 @@ namespace AppMusic.Services
 {
     class RepositoryService
     {
-        public string Source { get; set; } = AppContext.BaseDirectory.Substring(0, 49) + @"\Repository\Store.txt" ;
+        public string source { get; set; } = AppContext.BaseDirectory.Substring(0, 49) + @"\Repository\Store.txt" ;
 
         public RepositoryService() { }
         
-        public void RentItemDatabase(int Id)
+        public void rentItemDatabase(int Id)
         {
-            List<Music> List = new List<Music>();
+            List<Music> list = new List<Music>();
 
             //READ FILE
 
-            using (StreamReader sr = File.OpenText(Source))
+            using (StreamReader sr = File.OpenText(source))
             {
                 while (!sr.EndOfStream)
                 {
                     string[] vect = sr.ReadLine().Split(',');
 
-                    int IdSong = int.Parse(vect[0]);
-                    string Name = vect[1];
-                    string Band = vect[2];
-                    double Price = double.Parse(vect[3], CultureInfo.InvariantCulture);
-                    DateTime Date = DateTime.Parse(vect[4]);
-                    bool Avail = bool.Parse(vect[5]);
-                    List.Add(new Music(IdSong, Name, Band, Price, Date, Avail));
+                    int idSong = int.Parse(vect[0]);
+                    string name = vect[1];
+                    string band = vect[2];
+                    double price = double.Parse(vect[3], CultureInfo.InvariantCulture);
+                    DateTime date = DateTime.Parse(vect[4]);
+                    bool avail = bool.Parse(vect[5]);
+                    list.Add(new Music(idSong, name, band, price, date, avail));
                 }
             }
 
             //PROCESS FILE
 
-            var processFile = List.Where(x => x.Id == Id)
+            var processFile = list.Where(x => x.id == Id)
                                   .FirstOrDefault();
-            processFile.Available = false;
+            processFile.available = false;
 
             //RETURN TEXT
 
-            using (StreamWriter sw = new StreamWriter(Source,false))
+            using (StreamWriter sw = new StreamWriter(source,false))
             {
-                foreach(Music M in List)
+                foreach(Music music in list)
                 {
-                    string line = $"{M.Id},{M.Name},{M.Band},{M.Price.ToString(CultureInfo.InvariantCulture)},{M.UploadTime.ToString("dd/MM/yyyy")},{M.Available}";
+                    string line = $"{music.id},{music.name},{music.band},{music.price.ToString(CultureInfo.InvariantCulture)},{music.uploadTime.ToString("dd/MM/yyyy")},{music.available}";
                     sw.WriteLine(line);
                 }
             }
 
         }
 
-        public void ReturnItemDatabase(int id)
-        {
-
-        }
     }
 }
