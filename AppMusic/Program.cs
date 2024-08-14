@@ -36,60 +36,59 @@ namespace AppMusic
                 Console.WriteLine("View InVoices: (I)");
                 Console.WriteLine("Shut Down: (E)");
 
-                char Character = char.Parse(Console.ReadLine());
+                char firstCharacterChoice = char.Parse(Console.ReadLine());
 
-
-                if (Character == 'S' || Character == 's')
+                if (firstCharacterChoice == 'S' || firstCharacterChoice == 's')
                 {
                     musicService.storeTableWrite();
 
                     Console.Write("Would you like to make an Order? (Y/N)");
-                    char MaO = char.Parse(Console.ReadLine());
-                    if (MaO == 'N' || MaO == 'n')
+                    char questionOrder = char.Parse(Console.ReadLine());
+                    if (questionOrder == 'N' || questionOrder == 'n')
                     {
                         execute = false;
                     }
                     else
                     {
                         Console.Write("How many songs would you like to rent? ");
-                        int NrSongs = int.Parse(Console.ReadLine());
+                        int numberOfSongs = int.Parse(Console.ReadLine());
                         Console.Write("Please select the music's id to rent: ");
 
-                        for (int i = 1; i >= 1 && i <= NrSongs; i++)
+                        for (int i = 1; i >= 1 && i <= numberOfSongs; i++)
                         {
                             int id = int.Parse(Console.ReadLine());
 
-                            foreach (Music M in musicService.listOfMusics)
+                            foreach (Music music in musicService.listOfMusics)
                             {
-                                if (M.id == id)
+                                if (music.id == id)
                                 {
                                     try
                                     {
-                                        musicService.verifyMusicProcess(musicService.verifyMusic(M));
-                                        M.available = false;
-                                        orderItems.Add(M);
+                                        musicService.verifyMusicProcess(musicService.verifyMusic(music));
+                                        music.available = false;
+                                        orderItems.Add(music);
                                         repositoryService.rentItemDatabase(2);
 
                                         Console.WriteLine("In order to make the Invoice, please give us some data: ");
                                         Console.Write("Name: ");
-                                        string Name = Console.ReadLine();
+                                        string userName = Console.ReadLine();
                                         Console.Write("Email: ");
-                                        string Email = Console.ReadLine();
+                                        string userEmail = Console.ReadLine();
                                         Console.Write("Phone Number: ");
-                                        string PhoneNumber = Console.ReadLine();
+                                        string userPhoneNumber = Console.ReadLine();
 
-                                        var Buyer = new Buyer(Name, Email, PhoneNumber);
+                                        var userBuyer = new Buyer(userName, userEmail, userPhoneNumber);
 
                                         Console.Write("Which method of payment would you like to use? Mbway(M) or Paypal(P): ");
-                                        char T = char.Parse(Console.ReadLine());
+                                        char paymentChoice = char.Parse(Console.ReadLine());
 
-                                        string PaymentMethod = (T == 'M') ? "Mbway" : "Paypal";
-                                        IPayment Pay = (T == 'M') ? new MbwayService() : new PaypalService();
+                                        string paymentMethod = (paymentChoice == 'M') ? "Mbway" : "Paypal";
+                                        IPayment pay = (paymentChoice == 'M') ? new MbwayService() : new PaypalService();
 
-                                        order = new Order(musicService, Buyer, PaymentMethod);
+                                        order = new Order(musicService, userBuyer, paymentMethod);
                                         order.orderIdIncrement();
                                         order.addSongs(orderItems);
-                                        invoiceService = new InvoiceService(Pay, order);
+                                        invoiceService = new InvoiceService(pay, order);
 
                                         Console.WriteLine();
                                         Console.WriteLine("We processed your invoice........ ");
@@ -112,7 +111,7 @@ namespace AppMusic
                     Console.WriteLine();
                 }
 
-                if (Character == 'I' || Character == 'i')
+                if (firstCharacterChoice == 'I' || firstCharacterChoice == 'i')
                 {
                     invoiceService = new InvoiceService();
                     try
@@ -127,23 +126,23 @@ namespace AppMusic
                     Console.WriteLine();
 
                     Console.Write("Open Invoive? Y/N ");
-                    char OI = char.Parse(Console.ReadLine());
+                    char openInvoiceChoice = char.Parse(Console.ReadLine());
 
-                    if (OI == 'N' || OI == 'n')
+                    if (openInvoiceChoice == 'N' || openInvoiceChoice == 'n')
                     {
                         continue;
                     }
                     else
                     {
                         Console.Write("Which one? (Invoice Nr) ");
-                        int IN = int.Parse(Console.ReadLine());
+                        int invoiceNumber = int.Parse(Console.ReadLine());
 
-                        invoiceService.openInvoice(IN);
+                        invoiceService.openInvoice(invoiceNumber);
 
                     }
 
 
-                    if (Character == 'E' || Character == 'e')
+                    if (firstCharacterChoice == 'E' || firstCharacterChoice == 'e')
                     {
                         execute = false;
                     }
