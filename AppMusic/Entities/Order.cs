@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AppMusic.Services;
 using AppMusic.Entities.Enums;
 using AppMusic.Services.Exceptions;
@@ -11,44 +8,49 @@ namespace AppMusic.Entities
 {
     class Order
     {
-        public int orderId { get; set; } = 1;
-        public MusicService musicService { get; set; } = new MusicService();
-        public List<Music> orderList { get; set; } = new List<Music>();
-        public RepositoryService repositoryService { get; set; } = new RepositoryService();
-        public Buyer buyerDetails { get; set; }
-        public OrderStatus status { get; set; }
-        public string paymentMethod { get; set; }
+        public int OrderId { get; set; } = 1;
+        public MusicService MusicService { get; set; }
+        public List<Music> OrderList { get; set; }
+        public RepositoryService RepositoryService { get; set; }
+        public Buyer BuyerDetails { get; set; }
+        public OrderStatus Status { get; set; }
+        public string PaymentMethod { get; set; }
         public Order(MusicService ms, Buyer bd, string pm)
         {
-            buyerDetails = bd;
-            status++;
-            musicService = ms;
-            paymentMethod = pm;
+            this.MusicService = new MusicService();
+            this.OrderList = new List<Music>();
+            this.RepositoryService = new RepositoryService();
+
+            this.BuyerDetails = bd;
+            this.Status++;
+            this.MusicService = ms;
+            this.PaymentMethod = pm;
         }
 
-        public void addSong(Music M)
+        public void AddSong(Music M)
         {
-            orderList.Add(M);
+            
+            this.OrderList.Add(M);
         }
 
-        public void addSongs(List<Music> L)
+        public void AddSongs(List<Music> L)
         {
             foreach (Music M in L)
             {
-                addSong(M);
+                AddSong(M);
             }
         }
 
-        public void removeSong(Music M)
+        public void RemoveSong(Music M)
         {
-            orderList.Remove(M);
+            this.OrderList.Remove(M);
         }
 
-        public void orderIdIncrement()
+        public void OrderIdIncrement()
         {
             var baseDir = AppContext.BaseDirectory.Substring(0, 49) + @"\Invoice\";
             var i = Directory.GetFiles(baseDir).Length;
-            orderId += i;
+            this.OrderId += i;
         }
 
     }

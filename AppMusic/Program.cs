@@ -23,7 +23,7 @@ namespace AppMusic
             bool execute = true;
             List<Music> orderItems = new List<Music>();
             var musicService = new MusicService();
-            musicService.storeRead();
+            musicService.StoreRead();
             Order order;
             InvoiceService invoiceService;
             RepositoryService repositoryService = new RepositoryService();
@@ -40,7 +40,7 @@ namespace AppMusic
 
                 if (firstCharacterChoice == 'S' || firstCharacterChoice == 's')
                 {
-                    musicService.storeTableWrite();
+                    musicService.StoreTableWrite();
 
                     Console.Write("Would you like to make an Order? (Y/N)");
                     char questionOrder = char.Parse(Console.ReadLine());
@@ -58,16 +58,16 @@ namespace AppMusic
                         {
                             int id = int.Parse(Console.ReadLine());
 
-                            foreach (Music music in musicService.listOfMusics)
+                            foreach (Music music in musicService.ListOfMusics)
                             {
-                                if (music.id == id)
+                                if (music.Id == id)
                                 {
                                     try
                                     {
-                                        musicService.verifyMusicProcess(musicService.verifyMusic(music));
-                                        music.available = false;
+                                        musicService.VerifyMusicProcess(musicService.VerifyMusic(music));
+                                        music.Available = false;
                                         orderItems.Add(music);
-                                        repositoryService.rentItemDatabase(2);
+                                        repositoryService.RentItemDatabase(2);
 
                                         Console.WriteLine("In order to make the Invoice, please give us some data: ");
                                         Console.Write("Name: ");
@@ -86,16 +86,16 @@ namespace AppMusic
                                         IPayment pay = (paymentChoice == 'M') ? new MbwayService() : new PaypalService();
 
                                         order = new Order(musicService, userBuyer, paymentMethod);
-                                        order.orderIdIncrement();
-                                        order.addSongs(orderItems);
+                                        order.OrderIdIncrement();
+                                        order.AddSongs(orderItems);
                                         invoiceService = new InvoiceService(pay, order);
 
                                         Console.WriteLine();
                                         Console.WriteLine("We processed your invoice........ ");
                                         Console.WriteLine();
-                                        Console.WriteLine(invoiceService.invoiceProcess());
+                                        Console.WriteLine(invoiceService.InvoiceProcess());
                                         Console.WriteLine();
-                                        invoiceService.invoiceDocument();
+                                        invoiceService.InvoiceDocument();
                                         orderItems.Clear();
 
                                     }
@@ -116,7 +116,7 @@ namespace AppMusic
                     invoiceService = new InvoiceService();
                     try
                     {
-                        invoiceService.invoicesListShow();
+                        invoiceService.InvoicesListShow();
                     }
                     catch (FileNotFoundException e)
                     {
@@ -137,7 +137,7 @@ namespace AppMusic
                         Console.Write("Which one? (Invoice Nr) ");
                         int invoiceNumber = int.Parse(Console.ReadLine());
 
-                        invoiceService.openInvoice(invoiceNumber);
+                        invoiceService.OpenInvoice(invoiceNumber);
 
                     }
 

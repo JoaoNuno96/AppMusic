@@ -17,39 +17,47 @@ namespace AppMusic.Services
     {
         private readonly IPayment _paymentService;
 
-        public Order order;
+        public Order Order;
 
-        public string baseDir = AppContext.BaseDirectory.Substring(0, 49);
+        public string BaseDir = AppContext.BaseDirectory.Substring(0, 49);
 
         public InvoiceService() { }
 
         public InvoiceService(IPayment pay, Order or)
         {
             _paymentService = pay;
-            order = or;
+            Order = or;
+        }
+
+        public IPayment Pay
+        {
+            get
+            {
+                return _paymentService;
+            }
         }
 
         //Metodo que retorna o layout de invoice.
-        public string invoiceProcess()
+        public string InvoiceProcess()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("------------------------------------------------------------------------------");
-            sb.AppendLine("                          INVOICE #" + order.orderId);
+            sb.AppendLine("                          INVOICE #" + Order.OrderId);
             sb.AppendLine("|||||||||||| Buyer:");
-            sb.AppendLine("|||||||||||| Name: " + order.buyerDetails.name);
-            sb.AppendLine("|||||||||||| Email: " + order.buyerDetails.email);
-            sb.AppendLine("|||||||||||| Phone Number: " + order.buyerDetails.phoneNumber);
+            sb.AppendLine("|||||||||||| Name: " + Order.BuyerDetails.Name);
+            sb.AppendLine("|||||||||||| Email: " + Order.BuyerDetails.Email);
+            sb.AppendLine("|||||||||||| Phone Number: " + Order.BuyerDetails.PhoneNumber);
             sb.AppendLine("||||||||||||");
             sb.AppendLine("|||||||||||| Musics:");
 
-            foreach (Music m in order.orderList)
+            foreach (Music m in Order.OrderList)
             {
-                sb.AppendLine($"|||||||||||| {m.id}, Name: {m.band} - {m.name}, Price: {m.price}");
+                sb.AppendLine($"|||||||||||| {m.Id}, Name: {m.Band} - {m.Name}, Price: {m.Price}");
             }
 
-            var finalAmount = order.orderList.Where(x => x.available == false).Select(x => x.price).Sum();
-            var first = _paymentService.fee(finalAmount);
-            var second = _paymentService.tax(first);
+            var finalAmount = Order.OrderList.Where(x => x.Available == false).Select(x => x.Price).Sum();
+            var first = _paymentService.Fee(finalAmount);
+            var second = _paymentService.Tax(first);
             sb.AppendLine($"|||||||||||| Total Value: {second.ToString("F2", CultureInfo.InvariantCulture)}");
             sb.AppendLine("------------------------------------------------------------------------------");
             return sb.ToString();
@@ -57,35 +65,35 @@ namespace AppMusic.Services
 
         //Metodo que faz o processamento do documento da invoice, de acordo com o InvoiceProcess() => o layout;
         //Faz o processamento do numero de documento de acordo com o numero de arquivos no diretório com + 1;
-        public void invoiceDocument()
+        public void InvoiceDocument()
         {
-            string dir = baseDir + @"\Invoice\";
-            string source = baseDir + @"\Invoice\Invoice" + order.orderId + ".txt";
+            string dir = BaseDir + @"\Invoice\";
+            string source = BaseDir + @"\Invoice\Invoice" + Order.OrderId + ".txt";
 
             if (!dir.Any())
             {
                 using (StreamWriter sw = File.CreateText(source))
                 {
 
-                    sw.WriteLine(this.invoiceProcess());
+                    sw.WriteLine(this.InvoiceProcess());
                 }
             }
             else
             {
-                source = baseDir + @"\Invoice\Invoice" + order.orderId + ".txt";
+                source = BaseDir + @"\Invoice\Invoice" + Order.OrderId + ".txt";
                 using (StreamWriter sw = File.CreateText(source))
                 {
-                    sw.WriteLine(this.invoiceProcess());
+                    sw.WriteLine(this.InvoiceProcess());
                 }
             }
 
         }
 
         //Metodo para abrir Invoice de acordo com um numero especifico 
-        public void openInvoice(int Number)
+        public void OpenInvoice(int Number)
         {
             List<string> list = new List<string>();
-            string source = baseDir + @"\Invoice\Invoice" + Number + ".txt";
+            string source = BaseDir + @"\Invoice\Invoice" + Number + ".txt";
 
             if (source.Any())
             {
@@ -105,7 +113,7 @@ namespace AppMusic.Services
         }
 
         //Metodo para listar o numero de invoices
-        public void invoicesListShow()
+        public void InvoicesListShow()
         {
 
             List<string> list = new List<string>();

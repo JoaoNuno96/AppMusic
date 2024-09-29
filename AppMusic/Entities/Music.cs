@@ -9,27 +9,27 @@ namespace AppMusic.Entities
 {
     class Music
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string band { get; set; }
-        public double price { get; set; }
-        public DateTime uploadTime { get; set; }
-        public bool available { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Band { get; set; }
+        public double Price { get; set; }
+        public DateTime UploadTime { get; set; }
+        public bool Available { get; set; }
 
         public Music(int i, string n, string b, double p, DateTime ut, bool a)
         {
-            id = i;
-            name = n;
-            band = b;
-            price = p;
-            uploadTime = ut;
-            available = a;
+            this.Id = i;
+            this.Name = n;
+            this.Band = b;
+            this.Price = p;
+            this.UploadTime = ut;
+            this.Available = a;
         }
 
         //Metodo de ovveride de ToString() que apresenta uma frase de resumo do produto. 
         public override string ToString()
         {
-            return $"{id}, Name: {band} - {name}, Price: {price}";
+            return $"{this.Id}, Name: {this.Band} - {this.Name}, Price: {this.Price}";
         }
     }
 }

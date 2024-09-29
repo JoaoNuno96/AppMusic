@@ -12,17 +12,17 @@ namespace AppMusic.Services
 {
     class RepositoryService
     {
-        public string source { get; set; } = AppContext.BaseDirectory.Substring(0, 49) + @"\Repository\Store.txt" ;
+        public string Source { get; set; } = AppContext.BaseDirectory.Substring(0, 49) + @"\Repository\Store.txt" ;
 
         public RepositoryService() { }
         
-        public void rentItemDatabase(int Id)
+        public void RentItemDatabase(int Id)
         {
             List<Music> list = new List<Music>();
 
             //READ FILE
 
-            using (StreamReader sr = File.OpenText(source))
+            using (StreamReader sr = File.OpenText(Source))
             {
                 while (!sr.EndOfStream)
                 {
@@ -40,17 +40,17 @@ namespace AppMusic.Services
 
             //PROCESS FILE
 
-            var processFile = list.Where(x => x.id == Id)
+            var processFile = list.Where(x => x.Id == Id)
                                   .FirstOrDefault();
-            processFile.available = false;
+            processFile.Available = false;
 
             //RETURN TEXT
 
-            using (StreamWriter sw = new StreamWriter(source,false))
+            using (StreamWriter sw = new StreamWriter(Source,false))
             {
                 foreach(Music music in list)
                 {
-                    string line = $"{music.id},{music.name},{music.band},{music.price.ToString(CultureInfo.InvariantCulture)},{music.uploadTime.ToString("dd/MM/yyyy")},{music.available}";
+                    string line = $"{music.Id},{music.Name},{music.Band},{music.Price.ToString(CultureInfo.InvariantCulture)},{music.UploadTime.ToString("dd/MM/yyyy")},{music.Available}";
                     sw.WriteLine(line);
                 }
             }

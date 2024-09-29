@@ -15,19 +15,19 @@ namespace AppMusic.Services
 {
     class MusicService
     {
-        public string baseDir = (AppContext.BaseDirectory.Substring(0, 49) + @"\Repository\Store.txt").ToString();
-        public List<Music> listOfMusics { get; set; } = new List<Music>();
+        public string BaseDir = (AppContext.BaseDirectory.Substring(0, 45) + @"\Repository\Store.txt").ToString();
+        public List<Music> ListOfMusics { get; set; } = new List<Music>();
 
-        public bool verifyMusic(Music music)
+        public bool VerifyMusic(Music music)
         {
-            if (music.available == false)
+            if (music.Available == false)
             {
                 return false;
             }
             return true;
         }
 
-        public void verifyMusicProcess(bool status)
+        public void VerifyMusicProcess(bool status)
         {
             if (status)
             {
@@ -39,9 +39,9 @@ namespace AppMusic.Services
             }
         }
 
-        public void storeRead()
+        public void StoreRead()
         {
-            using (StreamReader sr = File.OpenText(baseDir))
+            using (StreamReader sr = File.OpenText(BaseDir))
             {
                 while (!sr.EndOfStream)
                 {
@@ -52,16 +52,16 @@ namespace AppMusic.Services
                     double musicPrice = double.Parse(vect[3], CultureInfo.InvariantCulture);
                     DateTime musicUpload = DateTime.Parse(vect[4]);
                     bool musicAvail = bool.Parse(vect[5]);
-                    listOfMusics.Add(new Music(musicId, musicName, musicBand, musicPrice, musicUpload, musicAvail));
+                    ListOfMusics.Add(new Music(musicId, musicName, musicBand, musicPrice, musicUpload, musicAvail));
                 }
             }
 
         }
 
-        public void storeTableWrite()
+        public void StoreTableWrite()
         {
             Console.OutputEncoding = Encoding.UTF8;
-            var data = initEmployee();
+            var data = this.InitEmployee();
             string[] columnNames = data.Columns.Cast<DataColumn>()
                                  .Select(x => x.ColumnName)
                                  .ToArray();
@@ -77,7 +77,7 @@ namespace AppMusic.Services
 
         }
 
-        public DataTable initEmployee()
+        public DataTable InitEmployee()
         {
 
             var table = new DataTable();
@@ -88,9 +88,9 @@ namespace AppMusic.Services
             table.Columns.Add("Upload Date");
             table.Columns.Add("Available");
 
-            foreach (Music music in listOfMusics)
+            foreach (Music music in ListOfMusics)
             {
-                table.Rows.Add(music.id, music.name, music.band, music.price, music.uploadTime, music.available);
+                table.Rows.Add(music.Id, music.Name, music.Band, music.Price, music.UploadTime, music.Available);
             }
             return table;
         }
