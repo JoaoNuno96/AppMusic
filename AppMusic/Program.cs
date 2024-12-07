@@ -31,6 +31,7 @@ namespace AppMusic
 
             while (execute)
             {
+                Console.WriteLine(repositoryService.Source);
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("View Store:(S) ");
                 Console.WriteLine("View InVoices: (I)");
@@ -43,8 +44,9 @@ namespace AppMusic
                     musicService.StoreTableWrite();
 
                     Console.Write("Would you like to make an Order? (Y/N)");
-                    char questionOrder = char.Parse(Console.ReadLine());
-                    if (questionOrder == 'N' || questionOrder == 'n')
+                    string questionOrder = Console.ReadLine();
+
+                    if (string.Equals(questionOrder, "n", StringComparison.OrdinalIgnoreCase))
                     {
                         execute = false;
                     }
@@ -67,7 +69,7 @@ namespace AppMusic
                                         musicService.VerifyMusicProcess(musicService.VerifyMusic(music));
                                         music.Available = false;
                                         orderItems.Add(music);
-                                        repositoryService.RentItemDatabase(2);
+                                        repositoryService.RentItemDatabase(music.Id);
 
                                         Console.WriteLine("In order to make the Invoice, please give us some data: ");
                                         Console.Write("Name: ");
@@ -145,6 +147,9 @@ namespace AppMusic
                     if (firstCharacterChoice == 'E' || firstCharacterChoice == 'e')
                     {
                         execute = false;
+                        //Environment.Exit(0);
+                        break;
+                        
                     }
 
                 }

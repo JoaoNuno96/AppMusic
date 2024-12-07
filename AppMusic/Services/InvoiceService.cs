@@ -19,7 +19,7 @@ namespace AppMusic.Services
 
         public Order Order;
 
-        public string BaseDir = AppContext.BaseDirectory.Substring(0, 49);
+        public string BaseDir = AppContext.BaseDirectory.Substring(0, 45);
 
         public InvoiceService() { }
 
@@ -118,7 +118,7 @@ namespace AppMusic.Services
 
             List<string> list = new List<string>();
 
-            var baseDir = AppContext.BaseDirectory.Substring(0, 49) + @"\Invoice\";
+            var baseDir = AppContext.BaseDirectory.Substring(0, 45) + @"\Invoice\";
             int index = Directory.GetFiles(baseDir).Length;
 
             for (int i = 1; i >= 1 && i <= index; i++)

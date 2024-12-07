@@ -12,7 +12,7 @@ namespace AppMusic.Services
 {
     class RepositoryService
     {
-        public string Source { get; set; } = AppContext.BaseDirectory.Substring(0, 49) + @"\Repository\Store.txt" ;
+        public string Source { get; set; } = AppContext.BaseDirectory.Substring(0, 45) + @"\Repository\Store.txt" ;
 
         public RepositoryService() { }
         

@@ -48,7 +48,7 @@ namespace AppMusic.Entities
 
         public void OrderIdIncrement()
         {
-            var baseDir = AppContext.BaseDirectory.Substring(0, 49) + @"\Invoice\";
+            var baseDir = AppContext.BaseDirectory.Substring(0, 45) + @"\Invoice\";
             var i = Directory.GetFiles(baseDir).Length;
             this.OrderId += i;
         }

@@ -1,6 +1,6 @@
-1,Don't Cry,Guns and Roses,1.5,27/10/2000,False
+1,Don't Cry,Guns and Roses,1.5,27/10/2000,True
 2,Layla,Eric Clapton,1.6,11/04/2014,False
-3,Lazy,Deep Purple,1.8,29/10/2020,True
+3,Lazy,Deep Purple,1.8,29/10/2020,False
 4,Pictured Life,Scorpions,1.5,03/01/2004,True
 5,Smells Like Teen Spirit,Nirvana,1.6,01/01/2002,True
 6,(I Can't Get No) Satisfaction,The Rolling Stones,1.7,02/06/2010,True
@@ -8,8 +8,8 @@
 8,Purple Rain,Prince,1.7,01/08/2009,True
 9,Johnny B. Goode,Chuck Berry,1.6,23/07/2001,True
 10,I Was Made for Lovin' You,Kiss,1.6,23/02/2006,True
-11,Is This Love, Whitesnake,1.6,10/10/2012,True
-12,Billie Jean,Michael Jackson,1.7,10/03/2000,True
-13,Your Song,Elton John,1.5,01/04/2020,True
+11,Is This Love, Whitesnake,1.6,10/10/2012,False
+12,Billie Jean,Michael Jackson,1.7,10/03/2000,False
+13,Your Song,Elton John,1.5,01/04/2020,False
 14,Still Got The Blues,Gary Moore,1.6,01/06/2006,True
 15,Keep On Loving You,REO Speedwagon,1.5,02/04/2004,True
