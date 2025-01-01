@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <Folder Include="Invoice\" />
+    <Folder Include="Auth\" />
+    <Folder Include="Logs\" />
     <Folder Include="Repository\" />
   </ItemGroup>
 
