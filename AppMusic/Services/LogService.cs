@@ -17,7 +17,7 @@ namespace AppMusic.Services
 
         public string DirectLogPath()
         {
-
+            return String.Empty;
         }
 
         public void ReadLog()

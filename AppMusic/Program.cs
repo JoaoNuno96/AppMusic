@@ -20,6 +20,8 @@ namespace AppMusic
 
             Console.WriteLine("This a application which lets you rent songs");
 
+            PathDirectory p = new PathDirectory();
+
             bool execute = true;
             List<Music> orderItems = new List<Music>();
             var musicService = new MusicService();
