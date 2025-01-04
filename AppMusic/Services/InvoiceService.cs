@@ -69,8 +69,8 @@ namespace AppMusic.Services
         //Faz o processamento do numero de documento de acordo com o numero de arquivos no diretório com + 1;
         public void InvoiceDocument()
         {
-            string dir = BaseDir + @"\Invoice\";
-            string source = BaseDir + @"\Invoice\Invoice" + Order.OrderId + ".txt";
+            string dir = this._pathDirectoryService.Paths.InvoicePath;
+            string source = this._pathDirectoryService.Paths.InvoicePath + @"\Invoice\Invoice" + Order.OrderId + ".txt";
 
             if (!dir.Any())
             {
@@ -82,7 +82,7 @@ namespace AppMusic.Services
             }
             else
             {
-                source = BaseDir + @"\Invoice\Invoice" + Order.OrderId + ".txt";
+                source = this._pathDirectoryService.Paths.InvoicePath + @"\Invoice\Invoice" + Order.OrderId + ".txt";
                 using (StreamWriter sw = File.CreateText(source))
                 {
                     sw.WriteLine(this.InvoiceProcess());
@@ -95,7 +95,8 @@ namespace AppMusic.Services
         public void OpenInvoice(int Number)
         {
             List<string> list = new List<string>();
-            string source = BaseDir + @"\Invoice\Invoice" + Number + ".txt";
+
+            string source = source = this._pathDirectoryService.Paths.InvoicePath + @"\Invoice\Invoice" + Number + ".txt";
 
             if (source.Any())
             {
@@ -120,12 +121,11 @@ namespace AppMusic.Services
 
             List<string> list = new List<string>();
 
-            var baseDir = AppContext.BaseDirectory.Substring(0, 45) + @"\Invoice\";
-            int index = Directory.GetFiles(baseDir).Length;
+            int index = Directory.GetFiles(this._pathDirectoryService.Paths.InvoicePath).Length;
 
             for (int i = 1; i >= 1 && i <= index; i++)
             {
-                string source = baseDir + @"\Invoice" + i + ".txt";
+                string source = this._pathDirectoryService.Paths.InvoicePath + @"\Invoice" + i + ".txt";
 
                 var lOne = File.ReadAllLines(source).Skip(1).Take(1).First().ToString().Substring(26);
                 var lTwo = File.ReadAllLines(source).Skip(3).Take(1).First().ToString().Substring(13);

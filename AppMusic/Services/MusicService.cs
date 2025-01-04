@@ -16,7 +16,6 @@ namespace AppMusic.Services
     class MusicService
     {
         private readonly PathDirectoryService _pathDirectoryService;
-        public string BaseDir = (AppContext.BaseDirectory.Substring(0, 45) + @"\Repository\Store.txt").ToString();
         public List<Music> ListOfMusics { get; set; } = new List<Music>();
 
         public MusicService(PathDirectoryService pds)
@@ -48,7 +47,7 @@ namespace AppMusic.Services
 
         public void StoreRead()
         {
-            using (StreamReader sr = File.OpenText(BaseDir))
+            using (StreamReader sr = File.OpenText(this._pathDirectoryService.Paths.RepositoryPath))
             {
                 while (!sr.EndOfStream)
                 {

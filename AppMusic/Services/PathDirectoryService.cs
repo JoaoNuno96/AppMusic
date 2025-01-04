@@ -26,10 +26,11 @@ namespace AppMusic.Services
 
             String dinamicPath = String.Join("\\", fragmentedPAth);
 
-            this.Paths.AuthPath = dinamicPath + @"\Auth";
+            this.Paths.AuthPath = dinamicPath + @"\Auth\DataAuth.txt";
             this.Paths.InvoicePath = dinamicPath + @"\Invoice";
-            this.Paths.LogPath = dinamicPath + @"\Logs";
-            this.Paths.RepositoryPath = dinamicPath + @"\Repository";
+            this.Paths.LogPath = dinamicPath + @"\Logs\Logs.txt";
+            this.Paths.LogErrorPath = dinamicPath + @"\Logs\ErrorLogs.txt";
+            this.Paths.RepositoryPath = dinamicPath + @"\Repository\Store.txt";
             this.Paths.ApplicationDirectoryPath = dinamicPath;
         }
     }

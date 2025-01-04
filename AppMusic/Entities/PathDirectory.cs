@@ -11,6 +11,7 @@ namespace AppMusic.Entities
         private string _authPath;
         private string _invoicePath;
         private string _logPath;
+        private string _logErrorPath;
         private string _reporistoryPath;
         private string _applicationDirectoryPath;
 
@@ -58,6 +59,21 @@ namespace AppMusic.Entities
                 if (value != null)
                 {
                     this._logPath = value;
+                }
+            }
+        }
+
+        public string LogErrorPath
+        {
+            get
+            {
+                return this._logErrorPath;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    this._logErrorPath = value;
                 }
             }
         }

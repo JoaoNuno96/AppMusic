@@ -13,8 +13,6 @@ namespace AppMusic.Services
     class RepositoryService
     {
         private readonly PathDirectoryService _pathDirectoryService;
-        public string Source { get; set; } = AppContext.BaseDirectory.Substring(0, 45) + @"\Repository\Store.txt" ;
-
         public RepositoryService(PathDirectoryService pd)
         {
             this._pathDirectoryService = pd;
@@ -26,7 +24,7 @@ namespace AppMusic.Services
 
             //READ FILE
 
-            using (StreamReader sr = File.OpenText(Source))
+            using (StreamReader sr = File.OpenText(this._pathDirectoryService.Paths.RepositoryPath))
             {
                 while (!sr.EndOfStream)
                 {
@@ -50,7 +48,7 @@ namespace AppMusic.Services
 
             //RETURN TEXT
 
-            using (StreamWriter sw = new StreamWriter(Source,false))
+            using (StreamWriter sw = new StreamWriter(this._pathDirectoryService.Paths.RepositoryPath,false))
             {
                 foreach(Music music in list)
                 {
