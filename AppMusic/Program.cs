@@ -12,6 +12,14 @@ namespace AppMusic
 
     class Program
     {
+        static PathDirectoryService Pds = new PathDirectoryService();
+        static bool Execute = true;
+        static List<Music> OrderItems = new List<Music>();
+        static MusicService MusicService = new MusicService(Pds);
+        static Order Order;
+        static OrderService OrderService;
+        static InvoiceService InvoiceService;
+        static RepositoryService RepositoryService = new RepositoryService(Pds);
         static void Main(string[] args)
         {
             Console.WriteLine("------------------------------------------------------------------------------");
@@ -20,20 +28,8 @@ namespace AppMusic
 
             Console.WriteLine("This a application which lets you rent songs");
 
-            PathDirectoryService pds = new PathDirectoryService();
-
-            bool execute = true;
-            List<Music> orderItems = new List<Music>();
-            var musicService = new MusicService(pds);
-            musicService.StoreRead();
-            Order order;
-            InvoiceService invoiceService;
-            RepositoryService repositoryService = new RepositoryService(pds);
-
-
-            while (execute)
+            while (Execute)
             {
-                Console.WriteLine(repositoryService.Source);
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("View Store:(S) ");
                 Console.WriteLine("View InVoices: (I)");
@@ -43,14 +39,14 @@ namespace AppMusic
 
                 if (firstCharacterChoice == 'S' || firstCharacterChoice == 's')
                 {
-                    musicService.StoreTableWrite();
+                    MusicService.StoreTableWrite();
 
                     Console.Write("Would you like to make an Order? (Y/N)");
                     string questionOrder = Console.ReadLine();
 
                     if (string.Equals(questionOrder, "n", StringComparison.OrdinalIgnoreCase))
                     {
-                        execute = false;
+                        Execute = false;
                     }
                     else
                     {
@@ -62,16 +58,16 @@ namespace AppMusic
                         {
                             int id = int.Parse(Console.ReadLine());
 
-                            foreach (Music music in musicService.ListOfMusics)
+                            foreach (Music music in MusicService.ListOfMusics)
                             {
                                 if (music.Id == id)
                                 {
                                     try
                                     {
-                                        musicService.VerifyMusicProcess(musicService.VerifyMusic(music));
+                                        MusicService.VerifyMusicProcess(MusicService.VerifyMusic(music));
                                         music.Available = false;
-                                        orderItems.Add(music);
-                                        repositoryService.RentItemDatabase(music.Id);
+                                        OrderItems.Add(music);
+                                        RepositoryService.RentItemDatabase(music.Id);
 
                                         Console.WriteLine("In order to make the Invoice, please give us some data: ");
                                         Console.Write("Name: ");
@@ -89,18 +85,21 @@ namespace AppMusic
                                         string paymentMethod = (paymentChoice == 'M') ? "Mbway" : "Paypal";
                                         IPayment pay = (paymentChoice == 'M') ? new MbwayService() : new PaypalService();
 
-                                        order = new Order(musicService, userBuyer, paymentMethod);
-                                        order.OrderIdIncrement();
-                                        order.AddSongs(orderItems);
-                                        invoiceService = new InvoiceService(pay, order,pds);
+
+                                        Order = new Order(userBuyer, paymentMethod);
+                                        OrderService = new OrderService(Pds, MusicService, RepositoryService, Order);
+
+                                        OrderService.OrderIdIncrement();
+                                        OrderService.AddSongs(OrderItems);
+                                        InvoiceService = new InvoiceService(pay, Order, Pds);
 
                                         Console.WriteLine();
                                         Console.WriteLine("We processed your invoice........ ");
                                         Console.WriteLine();
-                                        Console.WriteLine(invoiceService.InvoiceProcess());
+                                        Console.WriteLine(InvoiceService.InvoiceProcess());
                                         Console.WriteLine();
-                                        invoiceService.InvoiceDocument();
-                                        orderItems.Clear();
+                                        InvoiceService.InvoiceDocument();
+                                        OrderItems.Clear();
 
                                     }
                                     catch (MusicNotAvailableException e)
@@ -117,10 +116,10 @@ namespace AppMusic
 
                 if (firstCharacterChoice == 'I' || firstCharacterChoice == 'i')
                 {
-                    invoiceService = new InvoiceService();
+                    InvoiceService = new InvoiceService();
                     try
                     {
-                        invoiceService.InvoicesListShow();
+                        InvoiceService.InvoicesListShow();
                     }
                     catch (FileNotFoundException e)
                     {
@@ -141,17 +140,17 @@ namespace AppMusic
                         Console.Write("Which one? (Invoice Nr) ");
                         int invoiceNumber = int.Parse(Console.ReadLine());
 
-                        invoiceService.OpenInvoice(invoiceNumber);
+                        InvoiceService.OpenInvoice(invoiceNumber);
 
                     }
 
 
                     if (firstCharacterChoice == 'E' || firstCharacterChoice == 'e')
                     {
-                        execute = false;
+                        Execute = false;
                         //Environment.Exit(0);
                         break;
-                        
+
                     }
 
                 }

@@ -22,6 +22,7 @@ namespace AppMusic.Services
         public MusicService(PathDirectoryService pds)
         {
             this._pathDirectoryService = pds;
+            this.StoreRead();
         }
 
         public bool VerifyMusic(Music music)
