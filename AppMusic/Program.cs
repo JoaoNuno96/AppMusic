@@ -20,15 +20,15 @@ namespace AppMusic
 
             Console.WriteLine("This a application which lets you rent songs");
 
-            PathDirectory p = new PathDirectory();
+            PathDirectoryService pds = new PathDirectoryService();
 
             bool execute = true;
             List<Music> orderItems = new List<Music>();
-            var musicService = new MusicService();
+            var musicService = new MusicService(pds);
             musicService.StoreRead();
             Order order;
             InvoiceService invoiceService;
-            RepositoryService repositoryService = new RepositoryService();
+            RepositoryService repositoryService = new RepositoryService(pds);
 
 
             while (execute)
@@ -92,7 +92,7 @@ namespace AppMusic
                                         order = new Order(musicService, userBuyer, paymentMethod);
                                         order.OrderIdIncrement();
                                         order.AddSongs(orderItems);
-                                        invoiceService = new InvoiceService(pay, order);
+                                        invoiceService = new InvoiceService(pay, order,pds);
 
                                         Console.WriteLine();
                                         Console.WriteLine("We processed your invoice........ ");

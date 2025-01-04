@@ -9,10 +9,13 @@ namespace AppMusic.Services
 {
     public class UserService
     {
-        public string Path { get; set; }
+        private readonly PathDirectoryService _pathDirectoryService;
         public List<User> ListCreatedUsers { get; set; }
 
-        public UserService() { }
+        public UserService(PathDirectoryService pd)
+        {
+            this._pathDirectoryService = pd;
+        }
         public void CreateUser()
         {
             //Create User

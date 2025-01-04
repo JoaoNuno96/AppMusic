@@ -12,9 +12,13 @@ namespace AppMusic.Services
 {
     class RepositoryService
     {
+        private readonly PathDirectoryService _pathDirectoryService;
         public string Source { get; set; } = AppContext.BaseDirectory.Substring(0, 45) + @"\Repository\Store.txt" ;
 
-        public RepositoryService() { }
+        public RepositoryService(PathDirectoryService pd)
+        {
+            this._pathDirectoryService = pd;
+        }
         
         public void RentItemDatabase(int Id)
         {

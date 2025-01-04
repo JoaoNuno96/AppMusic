@@ -15,8 +15,14 @@ namespace AppMusic.Services
 {
     class MusicService
     {
+        private readonly PathDirectoryService _pathDirectoryService;
         public string BaseDir = (AppContext.BaseDirectory.Substring(0, 45) + @"\Repository\Store.txt").ToString();
         public List<Music> ListOfMusics { get; set; } = new List<Music>();
+
+        public MusicService(PathDirectoryService pds)
+        {
+            this._pathDirectoryService = pds;
+        }
 
         public bool VerifyMusic(Music music)
         {

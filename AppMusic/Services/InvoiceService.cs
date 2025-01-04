@@ -16,6 +16,7 @@ namespace AppMusic.Services
     class InvoiceService
     {
         private readonly IPayment _paymentService;
+        private readonly PathDirectoryService _pathDirectoryService;
 
         public Order Order;
 
@@ -23,10 +24,11 @@ namespace AppMusic.Services
 
         public InvoiceService() { }
 
-        public InvoiceService(IPayment pay, Order or)
+        public InvoiceService(IPayment pay, Order or, PathDirectoryService pds)
         {
-            _paymentService = pay;
-            Order = or;
+            this._paymentService = pay;
+            this.Order = or;
+            this._pathDirectoryService = pds;
         }
 
         public IPayment Pay

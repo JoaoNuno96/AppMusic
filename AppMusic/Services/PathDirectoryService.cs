@@ -14,10 +14,11 @@ namespace AppMusic.Services
         public PathDirectoryService()
         {
             Paths = new PathDirectory();
+            this.RecoverPaths();
         }
 
         //PROCESS THE RECOVERY OF ALL PATHS EVEN IF THE APPLICATION IS IN DIFFERENT CPU
-        public void RecoverPaths(string? name)
+        public void RecoverPaths()
         {
             List<string> source = AppContext.BaseDirectory.Split("\\").ToList();
             List<int> binIndex = source.Where(x => x == "bin").Select(x => source.IndexOf(x)).ToList();
