@@ -100,11 +100,10 @@ namespace AppMusic
                                         Console.WriteLine();
                                         InvoiceService.InvoiceDocument();
                                         OrderItems.Clear();
-
                                     }
                                     catch (MusicNotAvailableException e)
                                     {
-                                        Console.WriteLine("Error: " + e.Message);
+                                        Console.WriteLine("Erro: " + e.Message);
                                     }
                                 }
                             }
