@@ -24,20 +24,22 @@ namespace AppMusic.Entities
 
             this.ConfirmUserPassword();
         }
-        public void ConfirmUserPassword()
+        public bool ConfirmUserPassword()
         {
             try
             {
                 if (this.Password.GetHashCode() == this.ConfirmationPassword.GetHashCode())
                 {
+                    return true;
                 }
                 else
                 {
-                    throw new Exception("Password do not match the Confirmation Password");
+                    return false;
                 }
             }
             catch(Exception e)
             {
+                return false;
                 Console.WriteLine(e.Message);
             }
         }

@@ -20,18 +20,14 @@ namespace AppMusic.Services
         //PROCESS THE RECOVERY OF ALL PATHS EVEN IF THE APPLICATION IS IN DIFFERENT CPU
         public void RecoverPaths()
         {
-            List<string> source = AppContext.BaseDirectory.Split("\\").ToList();
-            List<int> binIndex = source.Where(x => x == "bin").Select(x => source.IndexOf(x)).ToList();
-            List<string> fragmentedPAth = source.Skip(0).Take(binIndex[0]).ToList();
+            string source = AppContext.BaseDirectory.ToString();
 
-            String dinamicPath = String.Join("\\", fragmentedPAth);
-
-            this.Paths.AuthPath = dinamicPath + @"\Auth\DataAuth.txt";
-            this.Paths.InvoicePath = dinamicPath + @"\Invoice";
-            this.Paths.LogPath = dinamicPath + @"\Logs\Logs.txt";
-            this.Paths.LogErrorPath = dinamicPath + @"\Logs\ErrorLogs.txt";
-            this.Paths.RepositoryPath = dinamicPath + @"\Repository\Store.txt";
-            this.Paths.ApplicationDirectoryPath = dinamicPath;
+            this.Paths.AuthPath = source + @"\Auth\DataAuth.txt";
+            this.Paths.InvoicePath = source + @"\Invoice";
+            this.Paths.LogPath = source + @"\Logs\Logs.txt";
+            this.Paths.LogErrorPath = source + @"\Logs\ErrorLogs.txt";
+            this.Paths.RepositoryPath = source + @"\Repository\Store.txt";
+            this.Paths.ApplicationDirectoryPath = source;
         }
     }
 }

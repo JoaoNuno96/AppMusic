@@ -34,7 +34,7 @@ namespace AppMusic
                 Console.WriteLine("View Store:(S) ");
                 Console.WriteLine("View InVoices: (I)");
                 Console.WriteLine("Shut Down: (E)");
-
+                Console.WriteLine(AppContext.BaseDirectory.ToString());
                 char firstCharacterChoice = char.Parse(Console.ReadLine());
 
                 if (firstCharacterChoice == 'S' || firstCharacterChoice == 's')

@@ -34,3 +34,9 @@ C:\Users\joaon\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\refint\AppMusic.d
 C:\Users\joaon\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.pdb
 C:\Users\joaon\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\AppMusic.genruntimeconfig.cache
 C:\Users\joaon\source\repos\AppMusic\AppMusic\obj\Debug\net8.0\ref\AppMusic.dll
+C:\Users\joaon\source\repos\AppMusic\AppMusic\bin\Debug\net8.0\Auth\DataAuth.txt
+C:\Users\joaon\source\repos\AppMusic\AppMusic\bin\Debug\net8.0\Invoice\Invoice1.txt
+C:\Users\joaon\source\repos\AppMusic\AppMusic\bin\Debug\net8.0\Invoice\Invoice2.txt
+C:\Users\joaon\source\repos\AppMusic\AppMusic\bin\Debug\net8.0\Logs\ErrorLogs.txt
+C:\Users\joaon\source\repos\AppMusic\AppMusic\bin\Debug\net8.0\Logs\Logs.txt
+C:\Users\joaon\source\repos\AppMusic\AppMusic\bin\Debug\net8.0\Repository\Store.txt
