@@ -21,27 +21,11 @@ namespace AppMusic.Entities
             this.Email = em;
             this.Password = p;
             this.ConfirmationPassword = pc;
-
-            this.ConfirmUserPassword();
         }
-        public bool ConfirmUserPassword()
+        public override string ToString()
         {
-            try
-            {
-                if (this.Password.GetHashCode() == this.ConfirmationPassword.GetHashCode())
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch(Exception e)
-            {
-                return false;
-                Console.WriteLine(e.Message);
-            }
+            return String.Join("/", [this.UserName, this.Email, this.Password, this.ConfirmationPassword]);
         }
+
     }
 }
