@@ -23,6 +23,13 @@ namespace AppMusic.Services
             this._pathDirectoryService = pds;
             this.StoreRead();
         }
+        public string RepositoryPath
+        {
+            get
+            {
+                return this._pathDirectoryService.Paths.RepositoryPath;
+            }
+        }
 
         public bool VerifyMusic(Music music)
         {
@@ -47,7 +54,7 @@ namespace AppMusic.Services
 
         public void StoreRead()
         {
-            using (StreamReader sr = File.OpenText(this._pathDirectoryService.Paths.RepositoryPath))
+            using (StreamReader sr = File.OpenText(this.RepositoryPath))
             {
                 while (!sr.EndOfStream)
                 {

@@ -23,6 +23,14 @@ namespace AppMusic.Services
             this.Order = o;
         }
 
+        public string InvoicePath
+        {
+            get
+            {
+                return this._pathDirectoryService.Paths.InvoicePath;
+            }
+        }
+
         public void AddSong(Music M)
         {
             this.Order.OrderList.Add(M);
@@ -43,7 +51,7 @@ namespace AppMusic.Services
 
         public void OrderIdIncrement()
         {
-            string baseDir = this._pathDirectoryService.Paths.InvoicePath;
+            string baseDir = this.InvoicePath;
             //var baseDir = AppContext.BaseDirectory.Substring(0, 45) + @"\Invoice\";
             var i = Directory.GetFiles(baseDir).Length;
             this.Order.OrderId += i;

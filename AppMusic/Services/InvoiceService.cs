@@ -17,10 +17,7 @@ namespace AppMusic.Services
     {
         private readonly IPayment _paymentService;
         private readonly PathDirectoryService _pathDirectoryService;
-
-        public Order Order;
-
-        public string BaseDir = AppContext.BaseDirectory.Substring(0, 45);
+        public Order Order { get; set; }
 
         public InvoiceService() { }
 
@@ -36,6 +33,14 @@ namespace AppMusic.Services
             get
             {
                 return _paymentService;
+            }
+        }
+
+        public string InvoicePath
+        {
+            get
+            {
+                return this._pathDirectoryService.Paths.InvoicePath;
             }
         }
 
@@ -69,8 +74,8 @@ namespace AppMusic.Services
         //Faz o processamento do numero de documento de acordo com o numero de arquivos no diretório com + 1;
         public void InvoiceDocument()
         {
-            string dir = this._pathDirectoryService.Paths.InvoicePath;
-            string source = this._pathDirectoryService.Paths.InvoicePath + @"\Invoice\Invoice" + Order.OrderId + ".txt";
+            string dir = this.InvoicePath;
+            string source = this.InvoicePath + @"\Invoice\Invoice" + Order.OrderId + ".txt";
 
             if (!dir.Any())
             {
@@ -82,7 +87,7 @@ namespace AppMusic.Services
             }
             else
             {
-                source = this._pathDirectoryService.Paths.InvoicePath + @"\Invoice\Invoice" + Order.OrderId + ".txt";
+                source = this.InvoicePath + @"\Invoice\Invoice" + Order.OrderId + ".txt";
                 using (StreamWriter sw = File.CreateText(source))
                 {
                     sw.WriteLine(this.InvoiceProcess());
@@ -96,7 +101,7 @@ namespace AppMusic.Services
         {
             List<string> list = new List<string>();
 
-            string source = source = this._pathDirectoryService.Paths.InvoicePath + @"\Invoice\Invoice" + Number + ".txt";
+            string source = source = this.InvoicePath + @"\Invoice\Invoice" + Number + ".txt";
 
             if (source.Any())
             {
@@ -121,11 +126,11 @@ namespace AppMusic.Services
 
             List<string> list = new List<string>();
 
-            int index = Directory.GetFiles(this._pathDirectoryService.Paths.InvoicePath).Length;
+            int index = Directory.GetFiles(this.InvoicePath).Length;
 
             for (int i = 1; i >= 1 && i <= index; i++)
             {
-                string source = this._pathDirectoryService.Paths.InvoicePath + @"\Invoice" + i + ".txt";
+                string source = this.InvoicePath + @"\Invoice" + i + ".txt";
 
                 var lOne = File.ReadAllLines(source).Skip(1).Take(1).First().ToString().Substring(26);
                 var lTwo = File.ReadAllLines(source).Skip(3).Take(1).First().ToString().Substring(13);

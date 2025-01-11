@@ -17,6 +17,14 @@ namespace AppMusic.Services
         {
             this._pathDirectoryService = pd;
         }
+
+        public string RepositoryPath
+        {
+            get
+            {
+                return this._pathDirectoryService.Paths.RepositoryPath;
+            }
+        }
         
         public void RentItemDatabase(int Id)
         {
@@ -24,7 +32,7 @@ namespace AppMusic.Services
 
             //READ FILE
 
-            using (StreamReader sr = File.OpenText(this._pathDirectoryService.Paths.RepositoryPath))
+            using (StreamReader sr = File.OpenText(this.RepositoryPath))
             {
                 while (!sr.EndOfStream)
                 {
@@ -48,7 +56,7 @@ namespace AppMusic.Services
 
             //RETURN TEXT
 
-            using (StreamWriter sw = new StreamWriter(this._pathDirectoryService.Paths.RepositoryPath,false))
+            using (StreamWriter sw = new StreamWriter(this.RepositoryPath, false))
             {
                 foreach(Music music in list)
                 {
