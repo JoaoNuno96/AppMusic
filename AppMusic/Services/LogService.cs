@@ -53,6 +53,7 @@ namespace AppMusic.Services
                     };
 
                     this.ListLogs.Add(log);
+                    
                 }
             }
         }

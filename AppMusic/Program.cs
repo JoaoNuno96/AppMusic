@@ -36,7 +36,7 @@ namespace AppMusic
                 Console.WriteLine(AppContext.BaseDirectory.ToString());
                 char firstCharacterChoice = char.Parse(Console.ReadLine());
 
-                if (firstCharacterChoice == 'S' || firstCharacterChoice == 's')
+                if (StringComparer.OrdinalIgnoreCase.Equals(firstCharacterChoice, "s"))
                 {
                     MusicService.StoreTableWrite();
 
@@ -59,7 +59,7 @@ namespace AppMusic
 
                             foreach (Music music in MusicService.ListOfMusics)
                             {
-                                if (music.Id == id)
+                                if (StringComparer.OrdinalIgnoreCase.Equals(music.Id,id))
                                 {
                                     try
                                     {
@@ -112,7 +112,7 @@ namespace AppMusic
                     Console.WriteLine();
                 }
 
-                if (firstCharacterChoice == 'I' || firstCharacterChoice == 'i')
+                if (StringComparer.OrdinalIgnoreCase.Equals(firstCharacterChoice, "i"))
                 {
                     InvoiceService = new InvoiceService();
                     try
@@ -129,7 +129,7 @@ namespace AppMusic
                     Console.Write("Open Invoive? Y/N ");
                     char openInvoiceChoice = char.Parse(Console.ReadLine());
 
-                    if (openInvoiceChoice == 'N' || openInvoiceChoice == 'n')
+                    if (StringComparer.OrdinalIgnoreCase.Equals(openInvoiceChoice, "n"))
                     {
                         continue;
                     }
@@ -141,9 +141,8 @@ namespace AppMusic
                         InvoiceService.OpenInvoice(invoiceNumber);
 
                     }
-
-
-                    if (firstCharacterChoice == 'E' || firstCharacterChoice == 'e')
+                    
+                    if (StringComparer.OrdinalIgnoreCase.Equals(firstCharacterChoice, "e"))
                     {
                         Execute = false;
                         //Environment.Exit(0);

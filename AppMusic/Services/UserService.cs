@@ -56,7 +56,7 @@ namespace AppMusic.Services
             {
                 foreach (string userR in usersRegisteredInFile)
                 {
-                    if (userR.Split("/")[1] == emailParam)
+                    if (userR.Split("/")[1].Equals(emailParam))
                     {
                         state = true;
                         return state;
