@@ -40,7 +40,7 @@ namespace AppMusic.Services
         {
             foreach (Music M in L)
             {
-                AddSong(M);
+                this.AddSong(M);
             }
         }
 

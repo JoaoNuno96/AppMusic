@@ -9,7 +9,6 @@ using System.Runtime.CompilerServices;
 
 namespace AppMusic
 {
-
     class Program
     {
         static PathDirectoryService Pds = new PathDirectoryService();
