@@ -1,4 +1,6 @@
 ﻿using AppMusic.Entities;
+using MySql.Data.MySqlClient;
+using Mysqlx.Expr;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,13 +63,37 @@ namespace AppMusic.Services
 
         }
 
+
         #region MUSIC
 
-        
+        //CHANGE MUSIC AVAILABLE form 1 to 0
+        public async Task AddMusic(string tableName, Music music)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(this.Connection.ConnectionString()))
+                {
+                    await conn.OpenAsync();
+                    MySqlCommand command = new MySqlCommand()
+                    {
+                        Connection = conn,
+                        CommandText = $"UPDATE `{tableName}` SET music_available = 0 WHERE id = {music.Id}"
+                    };
+
+                    await command.ExecuteNonQueryAsync();
+                }
+
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+
 
         #endregion
 
-        
+
 
 
 

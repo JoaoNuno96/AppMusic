@@ -67,7 +67,6 @@ namespace AppMusic.Services
                     ListOfMusics.Add(new Music(musicId, musicName, musicBand, musicPrice, musicUpload, musicAvail));
                 }
             }
-
         }
 
         public void StoreTableWrite()
