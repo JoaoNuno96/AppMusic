@@ -51,7 +51,6 @@ namespace AppMusic.Services
                 throw new MusicNotAvailableException("Music is not available");
             }
         }
-
         public void StoreRead()
         {
             using (StreamReader sr = File.OpenText(this.RepositoryPath))
