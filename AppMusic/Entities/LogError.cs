@@ -13,7 +13,7 @@ namespace AppMusic.Entities
 
         public override string ToString()
         {
-            return $"{this.ErrorCode} - {this.ErroMessage}";
+            return $"{this.ErroMessage} - {this.ErrorCode}";
         }
     }
 }

@@ -13,7 +13,7 @@ namespace AppMusic.Services
 
         public PathDirectoryService()
         {
-            Paths = new PathDirectory();
+            this.Paths = new PathDirectory();
             this.RecoverPaths();
         }
 
