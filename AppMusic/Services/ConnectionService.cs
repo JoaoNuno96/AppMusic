@@ -21,6 +21,7 @@ namespace AppMusic.Services
             this.Connection = this.RecoverConnectionData();
         }
 
+        //RECOVER CONNECTION DETAILS FROM .TXT
         public Connection RecoverConnectionData()
         {
             try

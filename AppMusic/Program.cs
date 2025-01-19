@@ -33,7 +33,7 @@ namespace AppMusic
                 Console.WriteLine("View Store:(S) ");
                 Console.WriteLine("View InVoices: (I)");
                 Console.WriteLine("Shut Down: (E)");
-                Console.WriteLine(AppContext.BaseDirectory.ToString());
+
                 char firstCharacterChoice = char.Parse(Console.ReadLine());
 
                 if (StringComparer.OrdinalIgnoreCase.Equals(firstCharacterChoice, "s"))
@@ -53,7 +53,7 @@ namespace AppMusic
                         int numberOfSongs = int.Parse(Console.ReadLine());
                         Console.Write("Please select the music's id to rent: ");
 
-                        for (int i = 1; i >= 1 && i <= numberOfSongs; i++)
+                        for (int i = 1; i <= numberOfSongs; i++)
                         {
                             int id = int.Parse(Console.ReadLine());
 

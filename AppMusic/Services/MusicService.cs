@@ -31,6 +31,7 @@ namespace AppMusic.Services
             }
         }
 
+        //VERIFY IF MUSIC IS AVAILABLE
         public bool VerifyMusic(Music music)
         {
             if (music.Available == false)
@@ -40,6 +41,7 @@ namespace AppMusic.Services
             return true;
         }
 
+        //PRINT MUSIC STATUS
         public void VerifyMusicProcess(bool status)
         {
             if (status)
@@ -51,6 +53,8 @@ namespace AppMusic.Services
                 throw new MusicNotAvailableException("Music is not available");
             }
         }
+        
+        //READS THE MUSIC REPOSITORY [STORE]
         public void StoreRead()
         {
             using (StreamReader sr = File.OpenText(this.RepositoryPath))
@@ -69,6 +73,7 @@ namespace AppMusic.Services
             }
         }
 
+        //WRITE THE TABLE
         public void StoreTableWrite()
         {
             Console.OutputEncoding = Encoding.UTF8;

@@ -28,6 +28,7 @@ namespace AppMusic.Services
             this._pathDirectoryService = pds;
         }
 
+        //ACCESS PRIVATE PROPERTIES [SECURITY LABEL]
         public IPayment Pay
         {
             get
@@ -36,6 +37,7 @@ namespace AppMusic.Services
             }
         }
 
+        //ACCESS PRIVATE PROPERTIES [SECURITY LABEL]
         public string InvoicePath
         {
             get
@@ -44,7 +46,7 @@ namespace AppMusic.Services
             }
         }
 
-        //Metodo que retorna o layout de invoice.
+        //RETURNS INVOICE LAYOUT
         public string InvoiceProcess()
         {
             StringBuilder sb = new StringBuilder();
@@ -70,8 +72,7 @@ namespace AppMusic.Services
             return sb.ToString();
         }
 
-        //Metodo que faz o processamento do documento da invoice, de acordo com o InvoiceProcess() => o layout;
-        //Faz o processamento do numero de documento de acordo com o numero de arquivos no diretório com + 1;
+        //PROCESS THE INVOICE DOCUMENT, EACH NUMBER IS GENERATED ACCORDING TO DIRECTORY.FILES() SIZE
         public void InvoiceDocument()
         {
             string dir = this.InvoicePath;
@@ -96,7 +97,7 @@ namespace AppMusic.Services
 
         }
 
-        //Metodo para abrir Invoice de acordo com um numero especifico 
+        //METHOD TO OPEN EACH INVOICE
         public void OpenInvoice(int Number)
         {
             List<string> list = new List<string>();
@@ -120,7 +121,7 @@ namespace AppMusic.Services
             }
         }
 
-        //Metodo para listar o numero de invoices
+        //LIST ALL INVOICES ON SCREEN
         public void InvoicesListShow()
         {
 

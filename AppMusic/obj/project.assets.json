@@ -1705,23 +1705,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\joaon\\.nuget\\packages\\": {},
+    "C:\\Users\\João Couto\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\AppMusic.csproj",
+      "projectUniqueName": "C:\\Users\\João Couto\\source\\repos\\AppMusic\\AppMusic\\AppMusic.csproj",
       "projectName": "AppMusic",
-      "projectPath": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\AppMusic.csproj",
-      "packagesPath": "C:\\Users\\joaon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\obj\\",
+      "projectPath": "C:\\Users\\João Couto\\source\\repos\\AppMusic\\AppMusic\\AppMusic.csproj",
+      "packagesPath": "C:\\Users\\João Couto\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\João Couto\\source\\repos\\AppMusic\\AppMusic\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\joaon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\João Couto\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1780,7 +1780,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
