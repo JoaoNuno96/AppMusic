@@ -26,6 +26,8 @@ namespace AppMusic.Services
                 return this._pathDirectoryService.Paths.AuthPath;
             }
         }
+
+        //CREATE A NEW USER
         public void CreateUser(User user)
         {
             if(!this.VerifyUsers(user.Email))
@@ -47,6 +49,7 @@ namespace AppMusic.Services
 
         }
 
+        //VERIFY IS USER EXIST ON .TXT
         public bool VerifyUsers(string emailParam)
         {
             bool state = false;
@@ -67,6 +70,7 @@ namespace AppMusic.Services
 
         }
 
+        //RECOVER USERS FROM .TXT
         public void RetrieveUsers()
         {
             using (StreamReader sr = File.OpenText(this.AuthPath))
@@ -75,6 +79,7 @@ namespace AppMusic.Services
             }
         }
 
+        //SELECT SINGLE USER FROM EMAIL
         public User SelectUserByEmail(string email)
         {
             return this.ListCreatedUsers
@@ -82,6 +87,7 @@ namespace AppMusic.Services
 
         }
 
+        //REMOVE USER FROM EMAIL
         public void DeleteUser(string email)
         {
             this.ListCreatedUsers.Remove(this.ListCreatedUsers.FirstOrDefault(x => x.Email == email));

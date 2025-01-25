@@ -31,11 +31,13 @@ namespace AppMusic.Services
             }
         }
 
+        //ADD SONG TO ORDER-ITEMS LIST
         public void AddSong(Music M)
         {
             this.Order.OrderList.Add(M);
         }
 
+        //RE-USES METHOD TO ADD SEVERAL SONGS TO ORDER-ITEMS LIST
         public void AddSongs(List<Music> L)
         {
             foreach (Music M in L)
@@ -44,11 +46,13 @@ namespace AppMusic.Services
             }
         }
 
+        //REMOVE SONGS FROM THE ORDER-ITEMS
         public void RemoveSong(Music M)
         {
             this.Order.OrderList.Remove(M);
         }
 
+        //GENERATE ORDER ID
         public void OrderIdIncrement()
         {
             string baseDir = this.InvoicePath;

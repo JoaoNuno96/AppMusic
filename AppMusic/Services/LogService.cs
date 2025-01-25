@@ -41,6 +41,7 @@ namespace AppMusic.Services
             }
         }
 
+        //READS ALL LOGS
         public void ReadLog()
         {
             using (StreamReader sr = File.OpenText(this.LogPath))
@@ -58,6 +59,7 @@ namespace AppMusic.Services
             }
         }
 
+        //WRITE IN EACH LOG DEPENDING OF TYPE OF OBJECT
         public void WriteLog(LogBase log)
         {
             if(log is Log)
