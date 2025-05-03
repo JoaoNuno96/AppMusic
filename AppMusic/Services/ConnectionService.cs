@@ -62,6 +62,7 @@ namespace AppMusic.Services
             }
             catch (Exception ex)
             {
+                Console.WriteLine("errors " + ex.Message);
             }
 
         }
@@ -70,7 +71,7 @@ namespace AppMusic.Services
         #region MUSIC
 
         //RECOVER ALL MUSIC
-        public async Task<List<Music>> RecoverAllMusics()
+        public List<Music> RecoverAllMusics()
         {
             List<Music>? list = new List<Music>();
 
@@ -78,16 +79,16 @@ namespace AppMusic.Services
             {
                 using (MySqlConnection conn = new MySqlConnection(this.Connection.ConnectionString()))
                 {
-                    await conn.OpenAsync();
+                    conn.Open();
                     MySqlCommand cmmd = new MySqlCommand()
                     {
                         Connection = conn,
                         CommandText = Queries.QUERY_MUSIC_RECOVER_ALL
                     };
 
-                    using (var result = await cmmd.ExecuteReaderAsync())
+                    using (var result = cmmd.ExecuteReader())
                     {
-                        while (await result.ReadAsync())
+                        while (result.Read())
                         {
                             Music music = new Music();
 
@@ -99,7 +100,6 @@ namespace AppMusic.Services
                             music.Available = result.GetBoolean(result.GetOrdinal("music_available"));
 
                             list.Add(music);
-                            Console.WriteLine(music.ToString());
                         }
 
                         return list;
@@ -113,26 +113,67 @@ namespace AppMusic.Services
             }
         }
 
+        //RECOVER ONE MUSIC
+        public Music RecoverSingle(int id)
+        {
+            Music music = new Music();
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(this.Connection.ConnectionString()))
+                {
+                    conn.Open();
+
+                    MySqlCommand cmd = new MySqlCommand
+                    {
+                        Connection = conn,
+                        CommandText = Queries.QUERY_MUSIC_RECOVER_SINGLE + $"{id}"
+                    };
+
+                    using (var result = cmd.ExecuteReader())
+                    {
+                        while (result.Read())
+                        {
+                            music.Id = result.GetInt32(result.GetOrdinal("id"));
+                            music.Name = result.GetString(result.GetOrdinal("music_name"));
+                            music.Band = result.GetString(result.GetOrdinal("music_band"));
+                            music.Price = result.GetDouble(result.GetOrdinal("music_price"));
+                            music.UploadTime = result.GetDateTime(result.GetOrdinal("music_upload"));
+                            music.Available = result.GetBoolean(result.GetOrdinal("music_available"));
+                        }
+                    }
+                }
+                return music;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return music;
+            }
+        }
+
         //CHANGE MUSIC AVAILABLE form 1 to 0
-        public async Task AddMusic(Music music)
+        public bool UpdateMusicStatus(Music musicParam)
         {
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(this.Connection.ConnectionString()))
                 {
-                    await conn.OpenAsync();
+                    conn.Open();
                     MySqlCommand command = new MySqlCommand()
                     {
                         Connection = conn,
-                        CommandText = $"UPDATE `music_store` SET music_available = 0 WHERE id = {music.Id}"
+                        CommandText = Queries.QUERY_MUSIC_UPDATING + $"{musicParam.Id}"
                     };
 
-                    await command.ExecuteNonQueryAsync();
+                    command.ExecuteNonQuery();
+                    return true;
                 }
 
             }
             catch (Exception ex)
             {
+                return false;
             }
         }
 

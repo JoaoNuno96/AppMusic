@@ -35,9 +35,9 @@ namespace AppMusic
                 Console.WriteLine("View InVoices: (I)");
                 Console.WriteLine("Shut Down: (E)");
 
-                char firstCharacterChoice = char.Parse(Console.ReadLine());
+                string firstCharacterChoice = Console.ReadLine();
 
-                if (StringComparer.OrdinalIgnoreCase.Equals(firstCharacterChoice, "s"))
+                if (firstCharacterChoice.ToLower() == "s")
                 {
                     MusicService.StoreTableWrite();
 
@@ -67,7 +67,7 @@ namespace AppMusic
                                         MusicService.VerifyMusicProcess(MusicService.VerifyMusic(music));
                                         music.Available = false;
                                         OrderItems.Add(music);
-                                        RepositoryService.RentItemDatabase(music.Id);
+                                        RepositoryService.RentItemDatabase(music);
 
                                         Console.WriteLine("In order to make the Invoice, please give us some data: ");
                                         Console.Write("Name: ");

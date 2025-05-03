@@ -9,6 +9,7 @@ using System.Globalization;
 using ConsoleTables;
 using System.Data;
 using AppMusic.Services.Exceptions;
+using AppMusic.Services;
 
 
 namespace AppMusic.Services
@@ -17,9 +18,11 @@ namespace AppMusic.Services
     {
         private readonly PathDirectoryService _pathDirectoryService;
         public List<Music> ListOfMusics { get; set; } = new List<Music>();
+        public ConnectionService ConnService { get; set; }
 
         public MusicService(PathDirectoryService pds)
         {
+            ConnService = new ConnectionService();
             this._pathDirectoryService = pds;
             this.StoreRead();
         }
@@ -57,20 +60,9 @@ namespace AppMusic.Services
         //READS THE MUSIC REPOSITORY [STORE]
         public void StoreRead()
         {
-            using (StreamReader sr = File.OpenText(this.RepositoryPath))
-            {
-                while (!sr.EndOfStream)
-                {
-                    string[] vect = sr.ReadLine().Split(',');
-                    int musicId = int.Parse(vect[0]);
-                    string musicName = vect[1];
-                    string musicBand = vect[2];
-                    double musicPrice = double.Parse(vect[3], CultureInfo.InvariantCulture);
-                    DateTime musicUpload = DateTime.Parse(vect[4]);
-                    bool musicAvail = bool.Parse(vect[5]);
-                    ListOfMusics.Add(new Music(musicId, musicName, musicBand, musicPrice, musicUpload, musicAvail));
-                }
-            }
+            this.ListOfMusics.Clear();
+            this.ListOfMusics = this.ConnService.RecoverAllMusics();
+
         }
 
         //WRITE THE TABLE
@@ -104,7 +96,7 @@ namespace AppMusic.Services
             table.Columns.Add("Upload Date");
             table.Columns.Add("Available");
 
-            foreach (Music music in ListOfMusics)
+            foreach (Music music in this.ListOfMusics)
             {
                 table.Rows.Add(music.Id, music.Name, music.Band, music.Price, music.UploadTime, music.Available);
             }

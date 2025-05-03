@@ -13,9 +13,11 @@ namespace AppMusic.Services
     class RepositoryService
     {
         private readonly PathDirectoryService _pathDirectoryService;
+        public ConnectionService ConnectionService { get; private set; }
         public RepositoryService(PathDirectoryService pd)
         {
             this._pathDirectoryService = pd;
+            this.ConnectionService = new ConnectionService();
         }
 
         public string RepositoryPath
@@ -27,27 +29,28 @@ namespace AppMusic.Services
         }
         
         //RENT SONG FROM DATABASE [STORE]
-        public void RentItemDatabase(int Id)
+        public void RentItemDatabase(int idParam)
         {
             List<Music> list = new List<Music>();
 
             //READ FILE
+            this.ConnectionService.UpdateMusicStatus(idParam);
 
-            using (StreamReader sr = File.OpenText(this.RepositoryPath))
-            {
-                while (!sr.EndOfStream)
-                {
-                    string[] vect = sr.ReadLine().Split(',');
+            //using (StreamReader sr = File.OpenText(this.RepositoryPath))
+            //{
+            //    while (!sr.EndOfStream)
+            //    {
+            //        string[] vect = sr.ReadLine().Split(',');
 
-                    int idSong = int.Parse(vect[0]);
-                    string name = vect[1];
-                    string band = vect[2];
-                    double price = double.Parse(vect[3], CultureInfo.InvariantCulture);
-                    DateTime date = DateTime.Parse(vect[4]);
-                    bool avail = bool.Parse(vect[5]);
-                    list.Add(new Music(idSong, name, band, price, date, avail));
-                }
-            }
+            //        int idSong = int.Parse(vect[0]);
+            //        string name = vect[1];
+            //        string band = vect[2];
+            //        double price = double.Parse(vect[3], CultureInfo.InvariantCulture);
+            //        DateTime date = DateTime.Parse(vect[4]);
+            //        bool avail = bool.Parse(vect[5]);
+            //        list.Add(new Music(idSong, name, band, price, date, avail));
+            //    }
+            //}
 
             //PROCESS FILE
 
