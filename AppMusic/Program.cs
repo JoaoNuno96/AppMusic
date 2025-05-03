@@ -19,13 +19,14 @@ namespace AppMusic
         static OrderService OrderService;
         static InvoiceService InvoiceService;
         static RepositoryService RepositoryService = new RepositoryService(Pds);
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             Console.WriteLine("------------------------------------------------------------------------------");
             Console.WriteLine("                       MUSIC APPLICATION PURCHASE");
             Console.WriteLine("------------------------------------------------------------------------------");
 
             Console.WriteLine("This a application which lets you rent songs");
+
 
             while (Execute)
             {
@@ -156,6 +157,7 @@ namespace AppMusic
 
             }
         }
+
     }
 
 }

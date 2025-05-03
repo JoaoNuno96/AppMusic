@@ -3,56 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\joaon\\source\\repos\\AppMusic\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\repository\\queries\\queries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\repository\\queries\\queries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\services\\connectionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\services\\connectionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\entities\\music.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\entities\\music.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\entities\\logerror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\entities\\logerror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\services\\logservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\services\\logservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\services\\musicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\services\\musicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\services\\pathdirectoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\services\\pathdirectoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\services\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\services\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\entities\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\entities\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\services\\repositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\services\\repositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\services\\musicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\services\\musicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|c:\\users\\joaon\\source\\repos\\appmusic\\appmusic\\services\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B94EFE9F-BF60-4567-9AC3-7B01F94AAF85}|AppMusic\\AppMusic.csproj|solutionrelative:appmusic\\services\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,119 +46,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LogService.cs",
-              "DocumentMoniker": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Services\\LogService.cs",
-              "RelativeDocumentMoniker": "AppMusic\\Services\\LogService.cs",
-              "ToolTip": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Services\\LogService.cs",
-              "RelativeToolTip": "AppMusic\\Services\\LogService.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAADsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T18:09:52.946Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LogError.cs",
-              "DocumentMoniker": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Entities\\LogError.cs",
-              "RelativeDocumentMoniker": "AppMusic\\Entities\\LogError.cs",
-              "ToolTip": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Entities\\LogError.cs",
-              "RelativeToolTip": "AppMusic\\Entities\\LogError.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T18:09:09.66Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Queries.cs",
+              "DocumentMoniker": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Repository\\Queries\\Queries.cs",
+              "RelativeDocumentMoniker": "AppMusic\\Repository\\Queries\\Queries.cs",
+              "ToolTip": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Repository\\Queries\\Queries.cs",
+              "RelativeToolTip": "AppMusic\\Repository\\Queries\\Queries.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T11:07:22.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "ConnectionService.cs",
               "DocumentMoniker": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Services\\ConnectionService.cs",
               "RelativeDocumentMoniker": "AppMusic\\Services\\ConnectionService.cs",
               "ToolTip": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Services\\ConnectionService.cs",
               "RelativeToolTip": "AppMusic\\Services\\ConnectionService.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAYwF0AAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAjwIsAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T17:54:14.186Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Connection.cs",
-              "DocumentMoniker": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Entities\\Connection.cs",
-              "RelativeDocumentMoniker": "AppMusic\\Entities\\Connection.cs",
-              "ToolTip": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Entities\\Connection.cs",
-              "RelativeToolTip": "AppMusic\\Entities\\Connection.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB4AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T17:53:08.882Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Entities\\Order.cs",
-              "RelativeDocumentMoniker": "AppMusic\\Entities\\Order.cs",
-              "ToolTip": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Entities\\Order.cs",
-              "RelativeToolTip": "AppMusic\\Entities\\Order.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAuwBIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-11T14:59:14.369Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Music.cs",
-              "DocumentMoniker": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Entities\\Music.cs",
-              "RelativeDocumentMoniker": "AppMusic\\Entities\\Music.cs",
-              "ToolTip": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Entities\\Music.cs",
-              "RelativeToolTip": "AppMusic\\Entities\\Music.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-11T14:59:09.227Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "AppMusic\\Services\\UserService.cs",
-              "ToolTip": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Services\\UserService.cs",
-              "RelativeToolTip": "AppMusic\\Services\\UserService.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAkwDoAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-11T12:39:43.761Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PathDirectoryService.cs",
-              "DocumentMoniker": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Services\\PathDirectoryService.cs",
-              "RelativeDocumentMoniker": "AppMusic\\Services\\PathDirectoryService.cs",
-              "ToolTip": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Services\\PathDirectoryService.cs",
-              "RelativeToolTip": "AppMusic\\Services\\PathDirectoryService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA0AAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-11T09:58:57.646Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 4,
               "Title": "RepositoryService.cs",
               "DocumentMoniker": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Services\\RepositoryService.cs",
               "RelativeDocumentMoniker": "AppMusic\\Services\\RepositoryService.cs",
               "ToolTip": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Services\\RepositoryService.cs",
               "RelativeToolTip": "AppMusic\\Services\\RepositoryService.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-11T09:56:56.352Z"
+              "WhenOpened": "2025-01-11T09:56:56.352Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "InvoiceService.cs",
               "DocumentMoniker": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Services\\InvoiceService.cs",
               "RelativeDocumentMoniker": "AppMusic\\Services\\InvoiceService.cs",
@@ -194,40 +97,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MusicService.cs",
               "DocumentMoniker": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Services\\MusicService.cs",
               "RelativeDocumentMoniker": "AppMusic\\Services\\MusicService.cs",
               "ToolTip": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Services\\MusicService.cs",
               "RelativeToolTip": "AppMusic\\Services\\MusicService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAiwBMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-04T16:51:49.48Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Program.cs",
               "RelativeDocumentMoniker": "AppMusic\\Program.cs",
               "ToolTip": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Program.cs",
               "RelativeToolTip": "AppMusic\\Program.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwC4AAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwKQAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T09:39:23.71Z"
+              "WhenOpened": "2024-11-07T09:39:23.71Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "OrderService.cs",
               "DocumentMoniker": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Services\\OrderService.cs",
               "RelativeDocumentMoniker": "AppMusic\\Services\\OrderService.cs",
               "ToolTip": "C:\\Users\\joaon\\source\\repos\\AppMusic\\AppMusic\\Services\\OrderService.cs",
               "RelativeToolTip": "AppMusic\\Services\\OrderService.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T16:29:12.416Z"
+              "WhenOpened": "2025-01-04T16:29:12.416Z",
+              "EditorCaption": ""
             }
           ]
         }

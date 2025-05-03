@@ -1,8 +1,10 @@
 ﻿using AppMusic.Entities;
+using AppMusic.Repository.Queries;
 using MySql.Data.MySqlClient;
 using Mysqlx.Expr;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -67,8 +69,52 @@ namespace AppMusic.Services
 
         #region MUSIC
 
+        //RECOVER ALL MUSIC
+        public async Task<List<Music>> RecoverAllMusics()
+        {
+            List<Music>? list = new List<Music>();
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(this.Connection.ConnectionString()))
+                {
+                    await conn.OpenAsync();
+                    MySqlCommand cmmd = new MySqlCommand()
+                    {
+                        Connection = conn,
+                        CommandText = Queries.QUERY_MUSIC_RECOVER_ALL
+                    };
+
+                    using (var result = await cmmd.ExecuteReaderAsync())
+                    {
+                        while (await result.ReadAsync())
+                        {
+                            Music music = new Music();
+
+                            music.Id = result.GetInt32(result.GetOrdinal("id"));
+                            music.Name = result.GetString(result.GetOrdinal("music_name"));
+                            music.Band = result.GetString(result.GetOrdinal("music_band"));
+                            music.Price = result.GetDouble(result.GetOrdinal("music_price"));
+                            music.UploadTime = result.GetDateTime(result.GetOrdinal("music_upload"));
+                            music.Available = result.GetBoolean(result.GetOrdinal("music_available"));
+
+                            list.Add(music);
+                            Console.WriteLine(music.ToString());
+                        }
+
+                        return list;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return list;
+            }
+        }
+
         //CHANGE MUSIC AVAILABLE form 1 to 0
-        public async Task AddMusic(string tableName, Music music)
+        public async Task AddMusic(Music music)
         {
             try
             {
@@ -78,7 +124,7 @@ namespace AppMusic.Services
                     MySqlCommand command = new MySqlCommand()
                     {
                         Connection = conn,
-                        CommandText = $"UPDATE `{tableName}` SET music_available = 0 WHERE id = {music.Id}"
+                        CommandText = $"UPDATE `music_store` SET music_available = 0 WHERE id = {music.Id}"
                     };
 
                     await command.ExecuteNonQueryAsync();

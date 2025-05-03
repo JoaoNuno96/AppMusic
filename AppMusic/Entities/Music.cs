@@ -15,7 +15,8 @@ namespace AppMusic.Entities
         public double Price { get; set; }
         public DateTime UploadTime { get; set; }
         public bool Available { get; set; }
-
+        
+        public Music() { }
         public Music(int i, string n, string b, double p, DateTime ut, bool a)
         {
             this.Id = i;

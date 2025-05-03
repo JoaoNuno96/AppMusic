@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.IO;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using AppMusic.Repository.Queries;
 
 namespace AppMusic.Services
 {
     public class LogService
     {
+
         private readonly PathDirectoryService _pathDirectoryService;
         public ICollection<Log> ListLogs { get; set; }
         public LogService(PathDirectoryService pds)
